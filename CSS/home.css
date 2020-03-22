@@ -9,19 +9,6 @@ body {
     alignment: center;
 }
 
-.column {
-    float: left;
-    text-align: center;
-    width: 33.33%;
-}
-
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 .dark-bar {
     background: #141414;
     font-size: 14px;
@@ -44,16 +31,6 @@ body {
     color: #b9b9b9;
 }
 
-.centered-division {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.centered-division h1 {
-    padding: 10px;
-}
-
 #time-label {
     padding: 10px;
     font-size: 96px;
@@ -61,7 +38,6 @@ body {
 
 button {
     display: inline-block;
-    padding: 10px 40px;
     margin: 0 0.3em 0.3em 0;
     border: 1px solid #006fdd;
     border-radius: 3px;
@@ -76,21 +52,12 @@ button:hover {
     background: linear-gradient(rgba(0, 122, 255, 0.85), rgba(0, 111, 221, 0.91));
 }
 
-footer {
-    background: #141414;
-    color: white;
-    padding: 10px;
-    display: block;
-    text-align: center;
-    margin-bottom: -50px;
-}
-
+/*List used for Task List*/
 ul {
     margin: 0;
     padding: 0;
 }
 
-/* Style the list items */
 ul li {
     cursor: pointer;
     position: relative;
@@ -100,31 +67,26 @@ ul li {
     font-size: 18px;
     transition: 0.2s;
 
-    /* make the list items unselectable */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-/* Set all odd list items to a different color (zebra-stripes) */
 ul li:nth-child(odd) {
     background: #f9f9f9;
 }
 
-/* Darker background-color on hover */
 ul li:hover {
     background: #ddd;
 }
 
-/* When clicked on, add a background color and strike out text */
 ul li.checked {
     background: #888;
     color: #fff;
     text-decoration: line-through;
 }
 
-/* Add a "checked" mark when clicked on */
 ul li.checked::before {
     content: '';
     position: absolute;
@@ -137,7 +99,6 @@ ul li.checked::before {
     height: 15px;
     width: 7px;
 }
-
 
 .close {
     position: absolute;

@@ -1,13 +1,14 @@
 var interval;
 var seconds = 0;
 
-
-function startTimer() {
+/*Start Timer*/
+function startTimer(time) {
     clearInterval(interval);
-    seconds = 15;
+    seconds = time * 60;
     interval = setInterval(changeTimeLabel, 1000);
 }
 
+/*Change time label*/
 function changeTimeLabel() {
     let timeLabel = document.getElementById("time-label");
 
@@ -21,54 +22,38 @@ function changeTimeLabel() {
         timeLabel.style.color = "red";
 }
 
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodelist[i].appendChild(span);
-}
 
-
-var close = document.getElementsByClassName("close");
-for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-        var div = this.parentElement;
-        div.style.display = "none";
-    }
-}
-
-
-var list = document.querySelector('ul');
-list.addEventListener('click', function (ev) {
-    if (ev.target.tagName === 'LI') {
-        ev.target.classList.toggle('checked');
-    }
-}, false);
-
-
+/*Add new task to the list*/
 function newElement() {
     var li = document.createElement("li");
     var inputValue = document.getElementById("taskTitle").value;
     var t = document.createTextNode(inputValue);
+    li.addEventListener("click", toggleTaskStatus);
     li.appendChild(t);
-    if (!(inputValue !== '')) {
+    if (inputValue === '') {
+        /*do nothing*/
+    } else {
         document.getElementById("tasksList").appendChild(li);
     }
-    document.getElementById("taskTitle").value = "";
 
+    //Adding close (right side of task)
+    document.getElementById("taskTitle").value = "";
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(txt);
     li.appendChild(span);
-
+    var close = document.getElementsByClassName("close");
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function () {
             var div = this.parentElement;
             div.style.display = "none";
         }
     }
+}
+
+/*Toggle task status as checked*/
+function toggleTaskStatus(e) {
+    var target = e.target;
+    target.classList.toggle("checked");
 }
