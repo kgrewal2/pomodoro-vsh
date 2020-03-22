@@ -1,0 +1,58 @@
+html * {
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial",
+    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    alignment: center;
+}
+
+#top-nav-bar {
+    background: #141414;
+    font-size: 14px;
+    color: #b9b9b9;
+    padding: 10px;
+}
+
+#top-nav-bar a {
+    padding: 0 20px;
+}
+
+#top-nav-bar a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.centered-division {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.centered-division h1{
+    padding: 10px;
+}
+
+#time-label{
+    padding: 10px;
+    font-size: 96px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 40px;
+    margin: 0 0.3em 0.3em 0;
+    border: 1px solid #006fdd;
+    border-radius: 3px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(#007AFF, #006fdd);
+    transition: all 0.2s;
+}
+
+button:hover {
+    cursor: pointer;
+    background: linear-gradient(rgba(0, 122, 255, 0.85), rgba(0, 111, 221, 0.91));
+}
