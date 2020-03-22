@@ -8,8 +8,9 @@
 </head>
 <body>
 
-<div id="top-nav-bar">
-    <a>Home</a>
+<!--Navigation-->
+<div class="dark-bar" id="top-bar">
+    <a href="index.html">Home</a>
     <a>About</a>
     <a>Follow Us</a>
 </div>
@@ -19,16 +20,42 @@
     <H2>Pomodoro - Virtual Study Hall</H2>
 </div>
 
-<div class="centered-division">
-    <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
-    <button onclick="startTimer(5)">Short Break</button>
-    <button onclick="startTimer(15)">Long Break</button>
+<div class="row">
+    <div class="column" style="vertical-align: top">
+        <div class="header" id="tasks">
+            <h2 style="margin:5px">My To Do List</h2>
+            <input id="taskTitle" placeholder="Task" type="text">
+            <button class="addTaskButton" onclick="newElement()">Add</button>
+        </div>
+        <ol id="tasksList">
+        </ol>
+
+
+    </div>
+    <div class="column">
+        <div class="centered-division">
+            <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
+            <button onclick="startTimer(5)">Short Break</button>
+            <button onclick="startTimer(15)">Long Break</button>
+        </div>
+        <div class="centered-division">
+            <label id="time-label">25:00</label>
+        </div>
+    </div>
+    <div class="column">
+        <a href="https://beta.music.apple.com" target="_blank">Apple Music</a>
+    </div>
 </div>
 
-<div class="centered-division">
-    <label id="time-label">25:00</label>
-</div>
 
+<footer>
+    <div>
+        <p>Posted by: Karandeep Singh Grewal</p>
+        <p>Contact information:
+            <a href="mailto:kgrewal2@asu.edu">kgrewal2@asu.edu</a>
+        </p>
+    </div>
+</footer>
 
 </body>
 </html>
