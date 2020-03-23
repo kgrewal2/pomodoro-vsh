@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Pomodoro - Virtual Study Hall</title>
     <link rel="stylesheet" href="CSS/home.css">
-    <script src="Scripts/home.js"></script>
 </head>
 <body>
 
@@ -15,7 +14,24 @@
     <a>Follow Us</a>
 </div>
 
+
 <div style="text-align: center; padding: 30px">
+
+    <div class="contact">
+        <div class="alert">Welcome to CodeDevils</div>
+        <form id="contactForm">
+            <p>
+                <input id="name" name="name" placeholder="Name" required type="text">
+            </p>
+            <p>
+                <input id="meetingID" name="meetingID" placeholder="Meeting ID" required type="text">
+            </p>
+            <p class="full">
+                <button type="submit">Submit</button>
+            </p>
+        </form>
+    </div>
+
     <H1>Code Devils - ASU</H1>
     <H2>Pomodoro - Virtual Study Hall</H2>
     <label id="time-label">00:00</label>
@@ -33,6 +49,7 @@
     </ul>
 </div>
 
-
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script src="Scripts/home.js"></script>
 </body>
 </html>

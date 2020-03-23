@@ -1,5 +1,19 @@
-var interval;
-var seconds = 0;
+// Initialize Firebase (ADD YOUR OWN DATA)
+const config = {
+    apiKey: "AIzaSyD55zBmfpkWqt1uRVw2Ddlcqa4e48FMq0E",
+    authDomain: "lisa-ca5ed.firebaseapp.com",
+    databaseURL: "https://lisa-ca5ed.firebaseio.com",
+    projectId: "lisa-ca5ed",
+    storageBucket: "lisa-ca5ed.appspot.com",
+    messagingSenderId: "655251167519",
+    appId: "1:655251167519:web:45c4f3f11ccda1fc44f82a",
+    measurementId: "G-C51PPVMKCV"
+};
+firebase.initializeApp(config);
+
+// Reference messages collection
+var meetingsRef = firebase.database().ref('meetings');
+
 
 /*Start Timer*/
 function startTimer(time) {
@@ -57,3 +71,27 @@ function toggleTaskStatus(e) {
     var target = e.target;
     target.classList.toggle("checked");
 }
+
+
+document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+function submitForm(e) {
+    e.preventDefault();
+    var meetingName = document.getElementById("name").value;
+    var meetingID = document.getElementById("meetingID").value;
+    saveMessage(meetingName, meetingID);
+    document.querySelector('.alert').style.display = 'block';
+    setTimeout(function () {
+        document.querySelector('.alert').style.display = 'none';
+    }, 3000);
+}
+
+/*FIREBASE*/
+function saveMessage(meetingName, meetingID) {
+    var newMeetingRef = meetingsRef.push();
+    newMeetingRef.set({
+        name: meetingName,
+        meetingID: meetingID
+    });
+}
+

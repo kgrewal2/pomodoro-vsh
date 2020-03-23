@@ -112,3 +112,11 @@ ul li.checked::before {
     color: white;
 }
 
+.alert {
+    text-align: center;
+    padding: 10px;
+    background: #79c879;
+    color: #fff;
+    margin-bottom: 10px;
+    display: none;
+}
