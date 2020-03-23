@@ -12,19 +12,15 @@ function startTimer(time) {
 
 
 /*Play ticking sound.*/
-function playsound(snd){
-    this.sound = document.createElement("audio");
-    this.sound.src = snd;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-        this.sound.play();
-    }
-    this.stop = function(){
-        this.sound.pause();
-    }
+function tickingPlay(){
+    const tickSound = document.getElementById("ticking");
+    tickSound.play();
+}
+
+/*Stop ticking sound.*/
+function tickingStop(){
+    const tickSound = document.getElementById("ticking");
+    tickSound.pause();
 }
 
 /*Change time label*/
@@ -39,13 +35,10 @@ function changeTimeLabel() {
     timeLabel.innerHTML = hr + ":" + min + ":" + sec;
     if (seconds === -1)
         clearInterval(interval);
+        tickingStop();
     if (seconds < 10)
         timeLabel.style.color = "red";
-        /*Start flashing and make noise here @ ~ 10 seconds left.*/
-        //tickingSoundMP3.play();
-        //tickingSoundWAV.play();
-        playsound(tickingSoundMP3);
-        playsound(tickingSoundWAV);
+        tickingPlay();
 }
 
 
