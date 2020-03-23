@@ -10,12 +10,25 @@
 
 <body>
 
-    <!--Navigation-->
+    <!--Navigation
+    -->
     <div class="dark-bar" id="top-bar">
         <a href="index.html">Home</a>
         <a>About</a>
         <a>Follow Us</a>
     </div>
+    <!--<nav>
+        <ul>
+            <li><a href="#page-bottom">Bottom</a></li>
+            <!--
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Custom Settings</a></li>
+            
+    <li><a href="./about.html" id="about">About</a></li>
+    <li><a href="./index.html">Home</a></li>
+    </ul>
+    </nav>
+    -->
 
     <div style="text-align: center; padding: 30px">
         <header id="headline">
@@ -24,12 +37,12 @@
 
         </header>
 
-
         <!-- Make a row, that will have 3 columns. -->
         <div class="flex-box" id="frame">
             <div class="container-fluid" id="top-section">
                 <table style="width:100%">
                     <tr>
+                        <!-- Tasks Section. -->
                         <td>
                             <div class="header" id="tasks">
                                 <h2 style="margin:5px">Tasks</h2>
@@ -40,31 +53,45 @@
                             </ul>
                         </td>
 
+                        <!-- Timer Section-->
                         <td>
-                            <h2 id="time-label">00:00:00</h2>
+                            <!--<h2 id="time-label">00:00:00</h2>-->
+                            <div class="container-fluid" id="time-label">
+                                <span class="row" id="timer">
+                                    <h2 class="col-sm-6" id="count3">00</h2>
+                                    <h2> : </h2>
+                                    <h2 class="col-sm-6" id="count4">00</h2>
+                                    <h2> : </h2>
+                                    <h2 class="col-sm-6" id="count5">00</h2>
+                                </span>
+                            </div>
+
                             <!-- Button Section Here. -->
-                            <!--<div class="container-fluid" id="buttons">
-                <secton class="btn-grp" id="choices">
-                    <div id="span-grp">
-                        <select id="session" value="4" type="submit" onclick='getHr()'><option>SESSION LENGTH</option></select>
-                        <select id="study" value="0" type="submit" onclick='getStudy()'><option>STUDY TIME</option></select>
-                        <select id="break" value="1" type="submit" onclick='getBreak()'><option>BREAK TIME</option></select>
-                        <button id="start" value="2" type="submit" onclick='checkInput()'>START</button>
-                        <button id="stop" value="3" type="submit" onclick='getStop()'>STOP</button>
-                        <!-- TODO 3/16:
+                            <div class="container-fluid" id="buttons">
+                                <section class="btn-grp" id="choices">
+                                    <div id="span-grp">
+                                        <select id="session" value="4" type="submit" onclick='getSession()'><option>SESSION LENGTH</option></select>
+                                        <select id="study" value="0" type="submit" onclick='getStudy()'><option>STUDY TIME</option></select>
+                                        <select id="break" value="1" type="submit" onclick='getBreak()'><option>BREAK TIME</option></select>
+                                        <button id="start" value="2" type="submit" onclick='checkInput()'>START</button>
+                                        <button id="stop" value="3" type="submit" onclick='getStop()'>STOP</button>
+                                        <!-- TODO 3/16:
                             <button id="reset" value="4" type="submit" onclick='getReset()'>RESET</button> 
                         -->
-                            <div id="buttons">
+                                        <!--<div id="buttons">
                                 <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
                                 <button onclick="startTimer(5)">Short Break</button>
                                 <button onclick="startTimer(15)">Long Break</button>
-                            </div>
-                            <audio id="ticking">
-                                <source src="resources/Ticking_Clock-KevanGC-1934595011.mp3">
-                            </audio>
+                                        -->
+                                    </div>
+                                    <audio id="ticking">
+                                        <source src="resources/Ticking_Clock-KevanGC-1934595011.mp3">
+                                    </audio>
+                                </section>
                         </td>
-                        <td>
 
+                        <!--Media column-->
+                        <td>
                             <div class="header" id="media">
                                 <h2 style="margin:5px">Media</h2>
                                 <!--<button class="addTaskButton" onclick="newElement()">Add</button>
@@ -77,8 +104,8 @@
                         </td>
                     </tr>
                 </table>
+                </div>
             </div>
-        </div>
 
 
 </body>

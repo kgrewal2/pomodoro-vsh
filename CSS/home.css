@@ -38,7 +38,7 @@ a:link {
 
 #time-label {
     padding: 0px;
-    font-size: 96px;
+    font-size: 48px;
     text-align: center;
 }
 
@@ -123,4 +123,57 @@ ul li.checked::before {
 .close:hover {
     background-color: #f44336;
     color: white;
+}
+
+#count3 {
+    /*background-color: #beebff;*/
+    text-align: center;
+    margin: 25px 0px;
+    border-radius: 4px;
+    width: 100%;
+    height: 50%;
+}
+
+#count4 {
+    /*background-color: #beebff;*/
+    text-align: center;
+    margin: 25px 0px;
+    border-radius: 4px;
+    width: 100%;
+    height: 50%;
+}
+
+#count5 {
+    /*background-color: #beebff;*/
+    text-align: center;
+    margin: 25px 0px;
+    border-radius: 4px;
+    width: 100%;
+    height: 50%;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 2.5px;
+    padding: 2.5px;
+    text-align: center;
+}
+
+.row>h2 {
+    text-align: center;
+    padding: 5px 0px;
+    font-size: 30px;
+}
+
+#session {
+    min-width: 50px;
+}
+
+#study {
+    min-width: 50px;
+}
+
+#break {
+    min-width: 50px;
 }
