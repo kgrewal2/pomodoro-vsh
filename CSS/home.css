@@ -1,12 +1,14 @@
 html * {
-    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial",
-    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    alignment: center;
+    margin: 25px 50px;
+    padding: 0px;
+    /*This will be able to be customized.*/
+    background-color: lightgrey;
+    opacity: 100%;
+    align-content: center;
 }
 
 .dark-bar {
@@ -27,17 +29,27 @@ body {
     cursor: pointer;
 }
 
-.dark-bar a:focus, a:visited, a:active, a:link {
+.dark-bar a:focus,
+a:visited,
+a:active,
+a:link {
     color: #b9b9b9;
 }
 
 #time-label {
-    padding: 10px;
+    padding: 0px;
     font-size: 96px;
+    text-align: center;
+}
+
+.buttons {
+    padding: 0px;
+    font-size: 48px;
+    display: center;
 }
 
 button {
-    display: inline-block;
+    display: center;
     margin: 0 0.3em 0.3em 0;
     border: 1px solid #006fdd;
     border-radius: 3px;
@@ -52,7 +64,9 @@ button:hover {
     background: linear-gradient(rgba(0, 122, 255, 0.85), rgba(0, 111, 221, 0.91));
 }
 
+
 /*List used for Task List*/
+
 ul {
     margin: 0;
     padding: 0;
@@ -66,7 +80,6 @@ ul li {
     background: #eee;
     font-size: 18px;
     transition: 0.2s;
-
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -111,4 +124,3 @@ ul li.checked::before {
     background-color: #f44336;
     color: white;
 }
-

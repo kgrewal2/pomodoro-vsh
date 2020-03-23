@@ -1,38 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Pomodoro - Virtual Study Hall</title>
     <link rel="stylesheet" href="CSS/home.css">
     <script src="Scripts/home.js"></script>
 </head>
+
 <body>
 
-<!--Navigation-->
-<div class="dark-bar" id="top-bar">
-    <a href="index.html">Home</a>
-    <a>About</a>
-    <a>Follow Us</a>
-</div>
-
-<div style="text-align: center; padding: 30px">
-    <H1>Code Devils - ASU</H1>
-    <H2>Pomodoro - Virtual Study Hall</H2>
-    <label id="time-label">00:00</label>
-    <br>
-    <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
-    <button onclick="startTimer(5)">Short Break</button>
-    <button onclick="startTimer(15)">Long Break</button>
-    <br><br><br>
-    <div class="header" id="tasks">
-        <h2 style="margin:5px">Tasks</h2>
-        <input id="taskTitle" placeholder="Task" type="text">
-        <button class="addTaskButton" onclick="newElement()">Add</button>
+    <!--Navigation-->
+    <div class="dark-bar" id="top-bar">
+        <a href="index.html">Home</a>
+        <a>About</a>
+        <a>Follow Us</a>
     </div>
-    <ul id="tasksList">
-    </ul>
-</div>
+
+    <div style="text-align: center; padding: 30px">
+        <header id="headline">
+            <h1>CodeDevils - ASU</h1>
+            <h2>Pomodoro - Virtual Study Hall</h2>
+
+        </header>
+
+
+        <!-- Make a row, that will have 3 columns. -->
+        <div class="flex-box" id="frame">
+            <div class="container-fluid" id="top-section">
+                <table style="width:100%">
+                    <tr>
+                        <td>
+                            <div class="header" id="tasks">
+                                <h2 style="margin:5px">Tasks</h2>
+                                <input id="taskTitle" placeholder="Task" type="text">
+                                <button class="addTaskButton" onclick="newElement()">Add</button>
+                            </div>
+                            <ul id="tasksList">
+                            </ul>
+                        </td>
+
+                        <td>
+                            <h2 id="time-label">00:00:00</h2>
+                            <!-- Button Section Here. -->
+                            <!--<div class="container-fluid" id="buttons">
+                <secton class="btn-grp" id="choices">
+                    <div id="span-grp">
+                        <select id="session" value="4" type="submit" onclick='getHr()'><option>SESSION LENGTH</option></select>
+                        <select id="study" value="0" type="submit" onclick='getStudy()'><option>STUDY TIME</option></select>
+                        <select id="break" value="1" type="submit" onclick='getBreak()'><option>BREAK TIME</option></select>
+                        <button id="start" value="2" type="submit" onclick='checkInput()'>START</button>
+                        <button id="stop" value="3" type="submit" onclick='getStop()'>STOP</button>
+                        <!-- TODO 3/16:
+                            <button id="reset" value="4" type="submit" onclick='getReset()'>RESET</button> 
+                        -->
+                            <div id="buttons">
+                                <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
+                                <button onclick="startTimer(5)">Short Break</button>
+                                <button onclick="startTimer(15)">Long Break</button>
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="header" id="media">
+                                <h2 style="margin:5px">Media</h2>
+                                <!--<button class="addTaskButton" onclick="newElement()">Add</button>
+                            </div> -->
+                                <ul id="mediaList">
+                                    <li><a id="spotify" target="_blank" href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg">CodeDevils Spotify</a></li>
+                                    <li><a id="appleMusic" target="_blank" href="https://itunes.apple.com/deeplink?app=music&p=browse">Apple Music</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
 
 </body>
+
 </html>
