@@ -2,7 +2,7 @@ html {
     margin: 0px 25px;
     /*This will be able to be customized.*/
     background-color: lightgrey;
-    background-image: url("./images/AZ_1.jpg");
+    /*background-image: url("../images/AZ_1.jpg");*/
     background-repeat: no-repeat;
     background-position: center top;
 }

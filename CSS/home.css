@@ -298,14 +298,23 @@ td {
     text-align: center;
 }
 
+div #mid-section {
+    margin: 0px 5px 0px 0px;
+    width: 100%;
+    height: 350px;
+}
+
 div #bott {
     background-color: black;
     margin: 20px 0px;
 }
 
 #top {
+    background-color: black;
     text-align: right;
     color: white;
+    margin: 15px 5px 0px 0px;
+    padding: 10px 10px;
 }
 
 footer {
@@ -315,7 +324,7 @@ footer {
     font-size: 16px;
     font-style: italic;
     text-align: center;
-    margin: 0px 5px;
+    margin: 0px 5px 0px 0px;
     padding: 10px 10px;
 }
 

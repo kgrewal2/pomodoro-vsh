@@ -49,7 +49,11 @@ function changeTimeLabel() {
 
     if (seconds === -1){
         clearInterval(interval);
+        hrLabel.style.color = "black";
+        minLabel.style.color = "black";
+        secLabel.style.color = "black";
         tickingStop();
+        getSwitch();
     }
     if (seconds < 10){
         //timeLabel.style.color = "red";
@@ -225,8 +229,9 @@ function getSession(){
     dropDown.innerHTML = option;
 
     //get the pomodoro counting in seconds
-    var timer = document.getElementById("break").innerHTML.valueOf(option);
+    var timer = document.getElementById("session").innerHTML.valueOf(option);
     console.log("In getSession: " + timer);
+    return timer;
 }
 
 function getSwitch() {
@@ -236,25 +241,29 @@ function getSwitch() {
     var opt = document.getElementsByTagName("option");
     var stdMin = 0;
     var brkMin = 0;
-    if(timerSwitch === false){
-         console.log("selected length: " + std.length);
-         for(i = 0; i < std.length; i++){
-              if(!(std[i].selected)){
-                   console.log("NOT SELECTED")
-              }else{
-                   stdMin = std[i].value;
-                   console.log("study SELECTED: " + stdMin);
-                   for(j = 0; j < brk.length; j++){
-                        brkMin = brk[j].value;
-                        console.log("break SELECTED: " + brkMin);
-                   }
+    for(i = 0; i < std.length; i++){
+         if(!(std[i].selected)){
+              console.log("NOT SELECTED")
+         }else{
+              stdMin = std[i].value;
+              console.log("study SELECTED: " + stdMin);
+              for(j = 0; j < brk.length; j++){
+                   brkMin = brk[j].value;
+                   console.log("break SELECTED: " + brkMin);
               }
          }
-         console.log("stdMin: " + stdMin + " brkMin: " + brkMin);
+    }
+    console.log("stdMin: " + stdMin + " brkMin: " + brkMin);
+
+    if(timerSwitch === false){
+         console.log("selected length: " + std.length);
          timerSwitch = true;
+         startTimer(brkMin);
          //pomodoro(brkMin, stdMin);
     }else {
         // document.body.style.background("lightgrey");
-         getStart();
+         //getStart();
+         timerSwitch = false;
+         startTimer(stdMin);
     }
 }
