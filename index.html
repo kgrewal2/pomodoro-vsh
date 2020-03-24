@@ -18,8 +18,8 @@
 <div style="text-align: center; padding: 30px">
 
     <div class="contact">
-        <div class="alert">Welcome to CodeDevils</div>
-        <form id="contactForm">
+        <!--<div class="alert">Welcome to CodeDevils</div>-->
+        <!--<form id="contactForm">
             <p>
                 <input id="name" name="name" placeholder="Name" required type="text">
             </p>
@@ -29,16 +29,35 @@
             <p class="full">
                 <button type="submit">Submit</button>
             </p>
-        </form>
+        </form>-->
     </div>
 
     <H1>Code Devils - ASU</H1>
     <H2>Pomodoro - Virtual Study Hall</H2>
     <label id="time-label">00:00</label>
-    <br>
-    <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
-    <button onclick="startTimer(5)">Short Break</button>
-    <button onclick="startTimer(15)">Long Break</button>
+    <br><br>
+    <!--    <button class="startPomodoro" onclick="startTimer(25)">Pomodoro</button>-->
+    <!--    <button onclick="startTimer(5)">Short Break</button>-->
+    <!--    <button onclick="startTimer(15)">Long Break</button>-->
+
+    <form>
+        <label>Session Length</label>
+        <select id="session-length" name="session-length">
+            <option value="25">25</option>
+            <option value="15">15</option>
+            <option value="10">10</option>
+        </select>
+        <label>Break Length</label>
+        <select id="break-length" name="break-length">
+            <option value="15`">15</option>
+            <option value="5">5</option>
+            <option value="3">3</option>
+        </select>
+        <br><br>
+        <input onclick="startButtonListener(this)" style="color: blue" type="button" value="Start">
+        <input onclick="stopButtonListeners()" style="color: red" type="button" value="Stop">
+    </form>
+
     <br><br><br>
     <div class="header" id="tasks">
         <h2 style="margin:5px">Tasks</h2>
