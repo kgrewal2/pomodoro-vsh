@@ -10,14 +10,13 @@ var three =  3;//3 min
 let times = [twentyFive, fifTeen, ten, five, three];
 let session = [1, 2, 3, 4, 5, 6, 7, 8];
 
-
 /*Start Timer*/
 function startTimer(time) {
     clearInterval(interval);
     seconds = time * 60;
+    console.log("In startTimer(time): " + time);
     interval = setInterval(changeTimeLabel, 1000);
 }
-
 
 /*Play ticking sound.*/
 function tickingPlay(){
@@ -41,22 +40,24 @@ function changeTimeLabel() {
 
     let min = ("0" + Math.floor(seconds / 60)).slice(-2);
     let sec = ("0" + seconds % 60).slice(-2);
-    let hr = (min * 60)/selectedSession;
+    let hr = min * 60;
     seconds--;
     //timeLabel.innerHTML = hr + ":" + min + ":" + sec;
     hrLabel.innerHTML = hr;
     minLabel.innerHTML = min;
     secLabel.innerHTML = sec;
 
-    if (seconds === -1)
+    if (seconds === -1){
         clearInterval(interval);
         tickingStop();
-    if (seconds < 10)
+    }
+    if (seconds < 10){
         //timeLabel.style.color = "red";
         hrLabel.style.color = "red";
         minLabel.style.color = "red";
         secLabel.style.color = "red";
         tickingPlay();
+    }
 }
 
 
@@ -128,28 +129,33 @@ function checkInput(){
                     console.log("4 study SELECTED: " + stdMin);
                     for(j = 0; j < brk.length; j++){
                         if(!(brk[j].selected)){
-                                //console.log("NOT SELECTED"), do nothing
+                            //console.log("NOT SELECTED"), do nothing
                         }else{
-                                brkMin = brk[j].value;
-                                console.log("5 break SELECTED: " + brkMin);
+                            brkMin = brk[j].value;
+                            console.log("5 break SELECTED: " + brkMin);
                         }
                     }
                 }
             }
 
+            console.log("6 INNER TEXT: " + timer[1].innerText + " " + timer[5].innerText + " " + timer[9].innerText);
+
             /*Checking timer*/
-            if(timer[0].innerText === '00' && timer[5].innerText === '00' && timer[9].innerText === '00'){
-                    console.log("WE'VE NOW STARTED: " + stdMin + " " + brkMin);
-                    console.log("TIMER_ON: " + timer_on);
-                    startTimer(stdMin);
+            if(timer[1].innerText === '00' && timer[5].innerText === '00' && timer[9].innerText === '00'){
+                console.log("WE'VE NOW STARTED: " + stdMin + " " + brkMin);
+                console.log("TIMER_ON: " + timer_on);
+                startTimer(stdMin);
             }else if(seconds <= -1){
+                timer_on = 0;
                 startTimer(brkMin);
             }
         }else {
+            getSwitch();
+            /*
             //turn timer off
             timer_on = 0;
             console.log("2 timer_on: " + timer_on);
-            /*Getting the values from the drop down.*/
+            /*Getting the values from the drop down.
             for(i = 0; i < std.length; i++){
                 if(!(std[i].selected)){
                     //console.log("NOT SELECTED"), do nothing
@@ -166,14 +172,14 @@ function checkInput(){
                     }
                 }
             }
-             /*Checking timer*/
+             /*Checking timer
              if(timer[0].innerText === '00' && timer[5].innerText === '00' && timer[9].innerText === '00'){
                 console.log("WE'VE NOW STARTED: " + stdMin + " " + brkMin);
                 console.log("TIMER_ON: " + timer_on);
                 startTimer(brkMin);
             }else if(seconds <= -1){
                 startTimer(stdMin);
-            }
+            }*/
         }
     }
 }
@@ -221,4 +227,34 @@ function getSession(){
     //get the pomodoro counting in seconds
     var timer = document.getElementById("break").innerHTML.valueOf(option);
     console.log("In getSession: " + timer);
+}
+
+function getSwitch() {
+    console.log("SWITCH: " + timer_on + " " + timerSwitch);
+    var std = document.getElementById("study").childNodes;
+    var brk = document.getElementById("break").childNodes;
+    var opt = document.getElementsByTagName("option");
+    var stdMin = 0;
+    var brkMin = 0;
+    if(timerSwitch === false){
+         console.log("selected length: " + std.length);
+         for(i = 0; i < std.length; i++){
+              if(!(std[i].selected)){
+                   console.log("NOT SELECTED")
+              }else{
+                   stdMin = std[i].value;
+                   console.log("study SELECTED: " + stdMin);
+                   for(j = 0; j < brk.length; j++){
+                        brkMin = brk[j].value;
+                        console.log("break SELECTED: " + brkMin);
+                   }
+              }
+         }
+         console.log("stdMin: " + stdMin + " brkMin: " + brkMin);
+         timerSwitch = true;
+         //pomodoro(brkMin, stdMin);
+    }else {
+        // document.body.style.background("lightgrey");
+         getStart();
+    }
 }

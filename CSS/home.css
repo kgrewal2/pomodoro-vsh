@@ -1,16 +1,50 @@
-html * {
+html {
     font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin: 0px 25px;
+    /*This will be able to be customized.*/
+    background-color: lightgrey;
+    background-image: url("./images/AZ_1.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
 }
 
 body {
     margin: 25px 50px;
-    padding: 0px;
-    /*This will be able to be customized.*/
+    /*padding: 0px;*/
+    /*This will be able to be customizable.*/
     background-color: lightgrey;
     opacity: 100%;
-    align-content: center;
+    /*align-content: center;*/
 }
 
+header {
+    background-color: #8ab9ff;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+nav {
+    background-color: #5689cc;
+    color: white;
+    font-size: 16px;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0px 0px;
+    padding: 5px 5px;
+}
+
+#title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 42px;
+    color: black;
+    margin: 10px;
+    background-color: #8ab9ff;
+}
+
+
+/*
 .dark-bar {
     background: #141414;
     font-size: 14px;
@@ -34,6 +68,25 @@ a:visited,
 a:active,
 a:link {
     color: #b9b9b9;
+}
+*/
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    text-align: inherit;
+    font-size: 42px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    text-align: justified;
+    background-color: #beebff;
+    color: black;
+    margin: 20px 20px;
 }
 
 #time-label {
@@ -125,6 +178,41 @@ ul li.checked::before {
     color: white;
 }
 
+
+/* The list for the nav bar. */
+
+ul.nav-links {
+    margin: 5px 0px;
+    padding: 2px 2px;
+    font-size: 16px;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li#link.navigation {
+    background-color: #5689cc;
+    text-decoration: none;
+}
+
+li.navigation {
+    background-color: #5689cc;
+    float: right;
+}
+
+li.navigation a {
+    background-color: #5689cc;
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 4px 4px;
+}
+
+li.navigation a:hover {
+    background-color: #beebff;
+    color: black;
+    padding: 4px 4px;
+}
+
 #count3 {
     /*background-color: #beebff;*/
     text-align: center;
@@ -152,6 +240,15 @@ ul li.checked::before {
     height: 50%;
 }
 
+#thingies {
+    /*background-color: #beebff;*/
+    text-align: center;
+    margin: 25px 0px;
+    border-radius: 4px;
+    width: 100%;
+    height: 50%;
+}
+
 .row {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
@@ -163,7 +260,7 @@ ul li.checked::before {
 .row>h2 {
     text-align: center;
     padding: 5px 0px;
-    font-size: 30px;
+    font-size: 48px;
 }
 
 #session {
@@ -176,4 +273,63 @@ ul li.checked::before {
 
 #break {
     min-width: 50px;
+}
+
+
+/*CSS for the utilities, mid section of the web app.*/
+
+.mid-section {
+    background-color: #8ab9ff;
+    padding: 15px 5px;
+    border-radius: 4px;
+    box-shadow: 8px 8px 8px 0px #537172;
+}
+
+tr {
+    margin: 0px 20px;
+}
+
+td {
+    background-color: #beebff;
+    border-radius: 4px;
+    box-shadow: 8px 8px 8px 0px #537172;
+    margin: 10px 10px;
+    padding: 0px 15px;
+    text-align: center;
+}
+
+div #bott {
+    background-color: black;
+    margin: 20px 0px;
+}
+
+#top {
+    text-align: right;
+    color: white;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
+    margin: 0px 5px;
+    padding: 10px 10px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    background-color: #beebff;
+    color: white;
+}
+
+flex-box {
+    display: absolute;
+    margin: auto 10px;
 }
