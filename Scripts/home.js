@@ -40,10 +40,10 @@ function changeTimeLabel() {
 
     let min = ("0" + Math.floor(seconds / 60)).slice(-2);
     let sec = ("0" + seconds % 60).slice(-2);
-    let hr = min * 60;
+    let hr = 60 * 60;
     seconds--;
     //timeLabel.innerHTML = hr + ":" + min + ":" + sec;
-    hrLabel.innerHTML = hr;
+    hrLabel.innerHTML = (hr * 4)/3600;
     minLabel.innerHTML = min;
     secLabel.innerHTML = sec;
 
@@ -149,41 +149,15 @@ function checkInput(){
                 console.log("WE'VE NOW STARTED: " + stdMin + " " + brkMin);
                 console.log("TIMER_ON: " + timer_on);
                 startTimer(stdMin);
+            }else if(timer[1].innerText != '00' && timer[5].innerText != '00' && timer[9].innerText != '00'){
+                /*TODO 3/24/2020: implement stop/reset here*/
+                startTimer(stdMin);
             }else if(seconds <= -1){
                 timer_on = 0;
                 startTimer(brkMin);
             }
         }else {
             getSwitch();
-            /*
-            //turn timer off
-            timer_on = 0;
-            console.log("2 timer_on: " + timer_on);
-            /*Getting the values from the drop down.
-            for(i = 0; i < std.length; i++){
-                if(!(std[i].selected)){
-                    //console.log("NOT SELECTED"), do nothing
-                }else{
-                    stdMin = std[i].value;//the study length chosen
-                    console.log("4 study SELECTED: " + stdMin);
-                    for(j = 0; j < brk.length; j++){
-                        if(!(brk[j].selected)){
-                                //console.log("NOT SELECTED"), do nothing
-                        }else{
-                                brkMin = brk[j].value;
-                                console.log("5 break SELECTED: " + brkMin);
-                        }
-                    }
-                }
-            }
-             /*Checking timer
-             if(timer[0].innerText === '00' && timer[5].innerText === '00' && timer[9].innerText === '00'){
-                console.log("WE'VE NOW STARTED: " + stdMin + " " + brkMin);
-                console.log("TIMER_ON: " + timer_on);
-                startTimer(brkMin);
-            }else if(seconds <= -1){
-                startTimer(stdMin);
-            }*/
         }
     }
 }
