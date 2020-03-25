@@ -22,6 +22,7 @@ var seconds;
 var isTimerRunning;
 var isReset;
 var startButtonObj;
+let timeLabel = document.getElementById("time-label");
 
 window.onload = () => {
     isReset = true;
@@ -39,6 +40,7 @@ function startButtonListener(button) {
     startButtonObj = button;
     //Starts the timer for the first time or after the user press STOP button
     if (isReset == true) {
+        toggleTimeLabelColor();
         sessionLength = document.getElementById("session-length").value;
         breakLength = document.getElementById("break-length").value;
         startTimer(sessionLength);
@@ -47,15 +49,25 @@ function startButtonListener(button) {
     }
     //Pause the timer
     else if (isTimerRunning == true) {
+        toggleTimeLabelColor();
         clearInterval(interval);
         isTimerRunning = false;
         startButtonObj.value = "Play";
     }
     //Resume the timer
     else {
+        toggleTimeLabelColor();
         interval = setInterval(changeTimeLabel, 1000);
         isTimerRunning = true;
         startButtonObj.value = "Pause";
+    }
+}
+
+function toggleTimeLabelColor() {
+    if (timeLabel.style.color == "black") {
+        timeLabel.style.color = "gray";
+    } else {
+        timeLabel.style.color = "black";
     }
 }
 
@@ -64,14 +76,13 @@ function stopButtonListeners() {
     clearInterval(interval);
     seconds = sessionLength * 60;
     changeTimeLabel();
+    timeLabel.style.color = "gray";
     isReset = true;
     startButtonObj.value = "Start";
 }
 
 /*Change time label*/
 function changeTimeLabel() {
-    let timeLabel = document.getElementById("time-label");
-
     let min = ("0" + Math.floor(seconds / 60)).slice(-2);
     let sec = ("0" + seconds % 60).slice(-2);
     seconds--;

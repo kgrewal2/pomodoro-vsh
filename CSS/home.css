@@ -34,6 +34,8 @@ body {
 #time-label {
     padding: 10px;
     font-size: 96px;
+    color: gray;
+    transition: 1s;
 }
 
 button {
