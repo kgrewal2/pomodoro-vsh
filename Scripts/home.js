@@ -39,7 +39,7 @@ function startTimer(time) {
 function startButtonListener(button) {
     startButtonObj = button;
     //Starts the timer for the first time or after the user press STOP button
-    if (isReset == true) {
+    if (isReset === true) {
         toggleTimeLabelColor();
         sessionLength = document.getElementById("session-length").value;
         breakLength = document.getElementById("break-length").value;
@@ -48,7 +48,7 @@ function startButtonListener(button) {
         startButtonObj.value = "Pause";
     }
     //Pause the timer
-    else if (isTimerRunning == true) {
+    else if (isTimerRunning === true) {
         toggleTimeLabelColor();
         clearInterval(interval);
         isTimerRunning = false;
@@ -64,10 +64,10 @@ function startButtonListener(button) {
 }
 
 function toggleTimeLabelColor() {
-    if (timeLabel.style.color == "black") {
+    if (timeLabel.style.color === "white") {
         timeLabel.style.color = "gray";
     } else {
-        timeLabel.style.color = "black";
+        timeLabel.style.color = "white";
     }
 }
 
@@ -92,7 +92,7 @@ function changeTimeLabel() {
     if (seconds < 10)
         timeLabel.style.color = "red";
     else
-        timeLabel.style.color = "black";
+        timeLabel.style.color = "white";
 }
 
 

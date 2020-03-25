@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pomodoro - Virtual Study Hall</title>
+    <title>Pomodoro</title>
     <link rel="stylesheet" href="CSS/home.css">
 </head>
 <body>
 
 <!--Navigation-->
 <div class="dark-bar" id="top-bar">
-    <a href="index.html">Home</a>
+    <label style="float: left;font-size: 30px">Code Devils - Pomodoro</label>
     <a>About</a>
     <a>Follow Us</a>
 </div>
+;
 
 
-<div style="text-align: center; padding: 30px">
+<div class="center-card">
 
     <div class="contact">
         <!--<div class="alert">Welcome to CodeDevils</div>-->
@@ -31,9 +32,6 @@
             </p>
         </form>-->
     </div>
-
-    <H1>Code Devils - ASU</H1>
-    <H2>Pomodoro - Virtual Study Hall</H2>
     <label id="time-label">00:00</label>
     <br><br>
     <!--    <button class="startPomodoro" onclick="startTimer(25)">Pomodoro</button>-->
@@ -41,13 +39,14 @@
     <!--    <button onclick="startTimer(15)">Long Break</button>-->
 
     <form>
-        <label>Session Length</label>
+        <label for="session-length">Session Length</label>
         <select id="session-length" name="session-length">
             <option value="25">25</option>
             <option value="15">15</option>
             <option value="10">10</option>
         </select>
-        <label>Break Length</label>
+
+        <label for="break-length">Break Length</label>
         <select id="break-length" name="break-length">
             <option value="15`">15</option>
             <option value="5">5</option>
@@ -61,8 +60,8 @@
     <br><br><br>
     <div class="header" id="tasks">
         <h2 style="margin:5px">Tasks</h2>
-        <input id="taskTitle" placeholder="Task" type="text">
-        <button class="addTaskButton" onclick="newElement()">Add</button>
+        <input id="taskTitle" placeholder="Task" style="padding: 5px 10px" type="text">
+        <button class="addTaskButton" onclick="newElement()" style="padding: 5px 30px">Add</button>
     </div>
     <ul id="tasksList">
     </ul>
