@@ -1,6 +1,16 @@
 let timer_on = 0;
-let timerSwitch = false;var interval;
+let timerSwitch = false;
+var interval;
 var seconds = 0;
+
+/*These are used for the stop, break, pause buttons.*/
+var sessionLength;
+var breakLength;
+var seconds;
+var isTimerRunning;
+var isReset;
+var startButtonObj;
+
 //These times are the Study/Break times "built in"
 var twentyFive = 25;//25 min
 var fifTeen =  15;//15 min
@@ -10,12 +20,17 @@ var three =  3;//3 min
 let times = [twentyFive, fifTeen, ten, five, three];
 let session = [1, 2, 3, 4, 5, 6, 7, 8];
 
+window.onload= () => {
+    isReset = true;
+}
+
 /*Start Timer*/
 function startTimer(time) {
     clearInterval(interval);
     seconds = time * 60;
     console.log("In startTimer(time): " + time);
     interval = setInterval(changeTimeLabel, 1000);
+    isTimerRunning = true;
 }
 
 /*Play ticking sound.*/
@@ -156,7 +171,11 @@ function checkInput(){
                 timer_on = 0;
                 startTimer(brkMin);
             }
-        }else {
+        }else if(isReset == true){
+            sessionLength = document.getElementById("session").value;
+            isReset == false;  
+            startTimer(sessionLength);          
+        }else{
             getSwitch();
         }
     }
@@ -233,11 +252,43 @@ function getSwitch() {
          console.log("selected length: " + std.length);
          timerSwitch = true;
          startTimer(brkMin);
-         //pomodoro(brkMin, stdMin);
     }else {
         // document.body.style.background("lightgrey");
-         //getStart();
          timerSwitch = false;
          startTimer(stdMin);
     }
+}
+
+
+function startButtonListener(button) {
+    startButtonObj = button;
+    //Starts the timer for the first time or after the user press STOP button
+    if (isReset == true) {
+        sessionLength = document.getElementById("session-length").value;
+        breakLength = document.getElementById("break-length").value;
+        startTimer(sessionLength);
+        isReset = false;
+        startButtonObj.value = "Pause";
+    }
+    //Pause the timer
+    else if (isTimerRunning == true) {
+        clearInterval(interval);
+        isTimerRunning = false;
+        startButtonObj.value = "Play";
+    }
+    //Resume the timer
+    else {
+        interval = setInterval(changeTimeLabel, 1000);
+        isTimerRunning = true;
+        startButtonObj.value = "Pause";
+    }
+}
+
+//Reset the timer
+function stopButtonListeners() {
+    clearInterval(interval);
+    seconds = sessionLength * 60;
+    changeTimeLabel();
+    isReset = true;
+    startButtonObj.value = "Start";
 }
