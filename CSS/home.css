@@ -1,11 +1,10 @@
 html {
     font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    margin: 0px 25px;
+    margin: 0px 0px;
     /*This will be able to be customized.*/
     background-color: lightgrey;
-    background-image: url("./images/AZ_1.jpg");
-    background-repeat: no-repeat;
-    background-position: center top;
+    background-image: url("../images/AZ_1.jpg");
+    background-size: contain;
 }
 
 body {
@@ -22,6 +21,7 @@ header {
     color: white;
     text-align: center;
     padding: 25px;
+    opacity: 100%;
 }
 
 nav {
@@ -32,6 +32,7 @@ nav {
     overflow: hidden;
     margin: 0px 0px;
     padding: 5px 5px;
+    opacity: 100%;
 }
 
 #title {
@@ -46,28 +47,28 @@ nav {
 
 /*
 .dark-bar {
-    background: #141414;
-    font-size: 14px;
-    color: #b9b9b9;
-    padding: 10px;
-    text-align: center;
+background: #141414;
+font-size: 14px;
+color: #b9b9b9;
+padding: 10px;
+text-align: center;
 }
 
 .dark-bar a {
-    padding: 0 20px;
-    text-decoration: none;
+padding: 0 20px;
+text-decoration: none;
 }
 
 .dark-bar a:hover {
-    color: white;
-    cursor: pointer;
+color: white;
+cursor: pointer;
 }
 
 .dark-bar a:focus,
 a:visited,
 a:active,
 a:link {
-    color: #b9b9b9;
+color: #b9b9b9;
 }
 */
 
@@ -101,7 +102,11 @@ p {
 #time-label {
     padding: 0px;
     font-size: 48px;
-    text-align: center;
+    text-align: justify;
+}
+
+container-fluid {
+    width: 45%;
 }
 
 .buttons {
@@ -130,7 +135,7 @@ button:hover {
 /*List used for Task List*/
 
 ul {
-    margin: 0;
+    margin: 5px 5px;
     padding: 0;
 }
 
@@ -289,14 +294,14 @@ li.navigation a:hover {
 
 .mid-section {
     background-color: #8ab9ff;
-    margin: 10px 10px;
+    margin: 5px 10px;
     padding: 15px 5px;
     height: 250px;
 }
 
 tr {
-    margin: 15px 20px;
-    height: 75%
+    margin: 5px 10px;
+    height: 85%
 }
 
 td {
@@ -304,8 +309,36 @@ td {
     border-radius: 4px;
     box-shadow: 8px 8px 8px 0px #537172;
     margin: 10px 10px;
-    padding: 0px 15px;
+    padding: 0px 0px;
     text-align: center;
+}
+
+td#t {
+    min-width: 175px;
+    padding: 10px 10px;
+    margin: 0px 0px;
+}
+
+td#l {
+    min-width: 250px;
+}
+
+td#m {
+    min-width: 100px;
+    padding: 10px 10px;
+    margin: 0px 0px;
+}
+
+ul#mediaList {
+    background-color: #beebff;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px 0px #537172;
+    text-align: left;
+    padding: 0px 0px;
+}
+
+li a #spotify {
+    background-color: #beebff;
 }
 
 div #mid-section {
@@ -345,10 +378,4 @@ footer a {
 
 footer a:hover {
     background-color: #beebff;
-    color: white;
-}
-
-flex-box {
-    display: absolute;
-    margin: auto 10px;
 }

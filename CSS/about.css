@@ -1,8 +1,10 @@
 html {
-    margin: 0px 25px;
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin: 0px 0px;
     /*This will be able to be customized.*/
     background-color: lightgrey;
-    /*background-image: url("../images/AZ_1.jpg");*/
+    background-image: url("../images/AZ_1.jpg");
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
 }
@@ -156,12 +158,6 @@ flex-box {
     margin: 10px 0px;
 }
 
-#mid-section {
-    background-color: #8ab9ff;
-    width: 100%;
-    height: 450px;
-}
-
 
 /**Animation for transitioning the frame theme
 
@@ -188,19 +184,6 @@ span {
     box-shadow: 8px 8px 8px 0px #537172;
 }
 
-
-/*
-#time.container-fluid {
-    background-color: #b0d1d1;
-    text-align: center;
-    width: 95%;
-    height: 175px;
-    margin: 0px 20px;
-    border-radius: 4px;
-    box-shadow: 8px 8px 8px 0px #537172;
-}
-*/
-
 #mainSection.container-fluid {
     background-color: #b0d1d1;
     text-align: center;
@@ -209,6 +192,17 @@ span {
     margin: 12px 20px;
     border-radius: 4px;
     box-shadow: 8px 8px 8px 0px #537172;
+    opacity: 100%;
+}
+
+#mid-section.container-fluid {
+    background-color: #8ab9ff;
+    text-align: left;
+    width: 100%;
+    height: 275px;
+    margin: 10px 0px;
+    border-radius: 4px;
+    opacity: 100%;
 }
 
 #buttons.container-fluid {
@@ -363,6 +357,23 @@ table.dev-table {
 ul #highlights {
     list-style-type: bullet;
     overflow: hidden;
-    margin: 5px 5px;
+    margin: 0;
     padding: 0;
+}
+
+li #bullets {
+    margin: 0px 10px;
+    float: right;
+}
+
+li a #bullets {
+    display: block;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+}
+
+li a:hover #bullets {
+    background-color: #beebff;
+    color: black;
 }
