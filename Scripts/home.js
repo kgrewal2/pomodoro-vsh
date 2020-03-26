@@ -33,6 +33,14 @@ function startTimer(time) {
     isTimerRunning = true;
 }
 
+/*Resume Timer*/
+function resumeTimer(min, sec){
+    clearInterval(interval);
+    seconds =  min + (min * 60) + sec;
+    interval = setInterval(changeTimeLabel, 1000);
+    isTimerRunning = true;
+}
+
 /*Play ticking sound.*/
 function tickingPlay(){
     const tickSound = document.getElementById("ticking");
@@ -47,11 +55,11 @@ function tickingStop(){
 
 /*Change time label*/
 function changeTimeLabel() {
-    //let timeLabel = document.getElementById("time-label");
-    //var selectedSession = 4;
     let hrLabel = document.getElementById("count3");
     let minLabel = document.getElementById("count4");
     let secLabel = document.getElementById("count5");
+
+    console.log("In changeTimeLabel: " + secLabel.innerText);
 
     let min = ("0" + Math.floor(seconds / 60)).slice(-2);
     let sec = ("0" + seconds % 60).slice(-2);
@@ -167,16 +175,21 @@ function checkInput(){
                 startTimer(stdMin);
             }else if(timer[1].innerText != '00' && timer[5].innerText != '00' && timer[9].innerText != '00'){
                 /*TODO 3/24/2020: implement stop/reset here*/
-                startTimer(stdMin);
+                startTimer(timer[5].innerText + timer[9].innerText);
+               //startButtonListener(this);
             }else if(seconds <= -1){
                 timer_on = 0;
                 isReset = false;
                 startTimer(brkMin);
             }
+        }else if(timer_on === 1){
+            /*Resuming the timer*/
+            console.log("Session: " + timer[1].innerText + " Mins: " + timer[5].innerText + " Secs: " + timer[9].innerText);
+            //startTimer(timer[5].innerText);
+            resumeTimer(timer[5].innerHTML, timer[9].innerHTML);
         }else if(isReset == true){
             sessionLength = document.getElementById("session").value;
-            isReset = false;  
-            startTimer(sessionLength);          
+            isReset = false;         
         }else{
             getSwitch();
         }
@@ -264,13 +277,13 @@ function getSwitch() {
 
 function startButtonListener(button) {
     startButtonObj = button;
+    console.log("This is the passed button: " + startButtonObj);
     //Starts the timer for the first time or after the user press STOP button
     if (isReset == true) {
-        sessionLength = document.getElementById("session-length").value;
-        breakLength = document.getElementById("break-length").value;
+        sessionLength = document.getElementById("session").value;
+        breakLength = document.getElementById("break").value;
         startTimer(sessionLength);
         isReset = false;
-        startButtonObj.value = "Pause";
     }
     //Pause the timer
     else if (isTimerRunning == true) {
@@ -278,6 +291,7 @@ function startButtonListener(button) {
     }
     //Resume the timer
     else {
+        console.log("You clicked RESUME fromt startButtonListener()")
         getResume();
     }
 }
@@ -286,9 +300,8 @@ function startButtonListener(button) {
 function stopButtonListeners() {
     clearInterval(interval);
     seconds = sessionLength * 60;
-    changeTimeLabel();
     isReset = true;
-    startButtonObj.value = "Start";
+    isTimerRunning = false;
 }
 
 //Pause the timer
@@ -299,6 +312,11 @@ function getPause(){
 
 //Resume the timer
 function getResume() {
-    interval = setInterval(changeTimeLabel, 1000);
+    console.log("You clicked RESUME " + interval);
+    checkInput();
     isTimerRunning = true;   
+}
+
+function getReset() {
+    console.log("You clicked RESET");
 }
