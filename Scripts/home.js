@@ -36,7 +36,7 @@ function startTimer(time) {
 /*Resume Timer*/
 function resumeTimer(min, sec){
     clearInterval(interval);
-    seconds =  min + (min * 60) + sec;
+    seconds =  (min * 60) + sec;
     interval = setInterval(changeTimeLabel, 1000);
     isTimerRunning = true;
 }
