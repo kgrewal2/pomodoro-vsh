@@ -35,6 +35,7 @@ function startTimer(time) {
 
 /*Resume Timer*/
 function resumeTimer(min, sec){
+    console.log("In RESUME TIMER: " + min + " " +  sec);
     clearInterval(interval);
     seconds =  (min * 60) + sec;
     interval = setInterval(changeTimeLabel, 1000);
@@ -59,7 +60,7 @@ function changeTimeLabel() {
     let minLabel = document.getElementById("count4");
     let secLabel = document.getElementById("count5");
 
-    console.log("In changeTimeLabel: " + secLabel.innerText);
+    //console.log("In changeTimeLabel: " + secLabel.innerText);
 
     let min = ("0" + Math.floor(seconds / 60)).slice(-2);
     let sec = ("0" + seconds % 60).slice(-2);
@@ -127,7 +128,7 @@ function toggleTaskStatus(e) {
 function checkInput(){
     var std = document.getElementById("study").innerHTML;
     var brk = document.getElementById("break").innerHTML;
-    var sess = document.getElementById("session").innerHTML;
+    //var sess = document.getElementById("session").innerHTML;
     console.log("CHECKING std: " + std.value + " brk: " + brk);
     if(std.includes("STUDY") && brk.includes("BREAK")){
         alert("Please choose a study time and a break time before starting the timer. Thanks! :)");
