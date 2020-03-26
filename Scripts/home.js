@@ -119,6 +119,7 @@ function toggleTaskStatus(e) {
 function checkInput(){
     var std = document.getElementById("study").innerHTML;
     var brk = document.getElementById("break").innerHTML;
+    var sess = document.getElementById("session").innerHTML;
     console.log("CHECKING std: " + std.value + " brk: " + brk);
     if(std.includes("STUDY") && brk.includes("BREAK")){
         alert("Please choose a study time and a break time before starting the timer. Thanks! :)");
@@ -169,11 +170,12 @@ function checkInput(){
                 startTimer(stdMin);
             }else if(seconds <= -1){
                 timer_on = 0;
+                isReset = false;
                 startTimer(brkMin);
             }
         }else if(isReset == true){
             sessionLength = document.getElementById("session").value;
-            isReset == false;  
+            isReset = false;  
             startTimer(sessionLength);          
         }else{
             getSwitch();
@@ -272,15 +274,11 @@ function startButtonListener(button) {
     }
     //Pause the timer
     else if (isTimerRunning == true) {
-        clearInterval(interval);
-        isTimerRunning = false;
-        startButtonObj.value = "Play";
+        getPause();
     }
     //Resume the timer
     else {
-        interval = setInterval(changeTimeLabel, 1000);
-        isTimerRunning = true;
-        startButtonObj.value = "Pause";
+        getResume();
     }
 }
 
@@ -291,4 +289,16 @@ function stopButtonListeners() {
     changeTimeLabel();
     isReset = true;
     startButtonObj.value = "Start";
+}
+
+//Pause the timer
+function getPause(){
+    clearInterval(interval);
+    isTimerRunning = false;
+}
+
+//Resume the timer
+function getResume() {
+    interval = setInterval(changeTimeLabel, 1000);
+    isTimerRunning = true;   
 }
