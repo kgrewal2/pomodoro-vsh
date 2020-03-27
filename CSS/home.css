@@ -1,45 +1,60 @@
-html * {
-    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial",
-    "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+html {
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin: 0px 25px;
+    /*This will be able to be customized.*/
+    background-color: lightgrey;
+    background-image: url("./images/AZ_1.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    margin: 25px 50px;
+    /*padding: 0px;*/
+    /*This will be able to be customizable.*/
+    background-color: lightgrey;
+    opacity: 100%;
+    /*align-content: center;*/
+}
+
+header {
+    background-color: #8ab9ff;
     color: white;
-    alignment: center;
-    align-content: center;
-    background-image: url("https://source.unsplash.com/random");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: color-dodge;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.center-card {
-    background: rgba(57, 57, 57, 0.91);
-    width: 50%;
     text-align: center;
-    padding: 10px 30px 20% 30px;
-    margin: 5% 25% 10% 25%;
+    padding: 25px;
 }
 
+nav {
+    background-color: #5689cc;
+    color: white;
+    font-size: 16px;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0px 0px;
+    padding: 5px 5px;
+}
+
+#title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 42px;
+    color: black;
+    margin: 10px;
+    background-color: #8ab9ff;
+}
+
+
+/*
 .dark-bar {
-    background: rgba(20, 20, 20, 0.85);
+    background: #141414;
     font-size: 14px;
     color: #b9b9b9;
-    position: fixed;
-    width: 100%;
     padding: 10px;
-    text-align: right;
-    /*text-align: center;*/
+    text-align: center;
 }
 
 .dark-bar a {
-    padding: 10px 10px;
-    margin-right: 40px;
-    float: right;
+    padding: 0 20px;
     text-decoration: none;
 }
 
@@ -48,19 +63,55 @@ body {
     cursor: pointer;
 }
 
-.dark-bar a:focus, a:visited, a:active, a:link {
+.dark-bar a:focus,
+a:visited,
+a:active,
+a:link {
     color: #b9b9b9;
+}
+*/
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    text-align: inherit;
+    font-size: 42px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    text-align: justified;
+    background-color: #beebff;
+    color: black;
+    margin: 20px 20px;
+}
+
+#dev-note {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: justified;
+    background-color: #b0d1d1;
+    color: black;
+    margin: 20px 20px;
 }
 
 #time-label {
-    padding: 10px;
-    font-size: 96px;
-    color: gray;
-    transition: 1s;
+    padding: 0px;
+    font-size: 48px;
+    text-align: center;
+}
+
+.buttons {
+    padding: 0px;
+    font-size: 48px;
+    display: center;
 }
 
 button {
-    display: inline-block;
+    display: center;
     margin: 0 0.3em 0.3em 0;
     border: 1px solid #006fdd;
     border-radius: 3px;
@@ -75,9 +126,11 @@ button:hover {
     background: linear-gradient(rgba(0, 122, 255, 0.85), rgba(0, 111, 221, 0.91));
 }
 
+
 /*List used for Task List*/
+
 ul {
-    margin: 10px 20px;
+    margin: 0;
     padding: 0;
 }
 
@@ -86,32 +139,25 @@ ul li {
     position: relative;
     padding: 12px 8px 12px 40px;
     list-style-type: none;
-    background: rgba(255, 179, 16, 0.71);
+    background: #eee;
     font-size: 18px;
     transition: 0.2s;
-
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-ul li:hover {
-    background: #ffb920;
-}
-
 ul li:nth-child(odd) {
-    background: rgba(153, 0, 51, 0.51);
+    background: #f9f9f9;
 }
 
-ul li:nth-child(odd):hover {
-    background: #990033;
-
+ul li:hover {
+    background: #ddd;
 }
-
 
 ul li.checked {
-    background: #606060;
+    background: #888;
     color: #fff;
     text-decoration: line-through;
 }
@@ -119,7 +165,7 @@ ul li.checked {
 ul li.checked::before {
     content: '';
     position: absolute;
-    border-color: #007aff;
+    border-color: #fff;
     border-style: solid;
     border-width: 0 2px 2px 0;
     top: 10px;
@@ -141,28 +187,168 @@ ul li.checked::before {
     color: white;
 }
 
-select {
-    width: 100px;
-    margin: 0px 10px 0px 5px;
+
+/* The list for the nav bar. */
+
+ul.nav-links {
+    margin: 5px 0px;
+    padding: 2px 2px;
+    font-size: 16px;
+    list-style-type: none;
+    overflow: hidden;
 }
 
-input[type=button] {
-    width: 100px;
-    margin: 0px;
+li#link.navigation {
+    background-color: #5689cc;
+    text-decoration: none;
 }
 
-input[type=text] {
-    width: 500px;
-    margin: 0px;
+li.navigation {
+    background-color: #5689cc;
+    float: right;
 }
 
-/*
-.alert {
+li.navigation a {
+    background-color: #5689cc;
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 4px 4px;
+}
+
+li.navigation a:hover {
+    background-color: #beebff;
+    color: black;
+    padding: 4px 4px;
+}
+
+#count3 {
+    /*background-color: #beebff;*/
     text-align: center;
-    padding: 10px;
-    background: #79c879;
-    color: #fff;
-    margin-bottom: 10px;
-    display: none;
+    margin: 25px 0px;
+    border-radius: 4px;
+    width: 100%;
+    height: 50%;
 }
-*/
+
+#count4 {
+    /*background-color: #beebff;*/
+    text-align: center;
+    margin: 25px 0px;
+    border-radius: 4px;
+    width: 100%;
+    height: 50%;
+}
+
+#count5 {
+    /*background-color: #beebff;*/
+    text-align: center;
+    margin: 25px 0px;
+    border-radius: 4px;
+    width: 100%;
+    height: 50%;
+}
+
+#thingies {
+    /*background-color: #beebff;*/
+    text-align: center;
+    margin: 25px 0px;
+    border-radius: 4px;
+    width: 100%;
+    height: 50%;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 2.5px;
+    padding: 2.5px;
+    text-align: center;
+}
+
+.row>h2 {
+    text-align: center;
+    padding: 5px 0px;
+    font-size: 48px;
+}
+
+#session {
+    min-width: 50px;
+}
+
+#study {
+    min-width: 50px;
+}
+
+#break {
+    min-width: 50px;
+}
+
+
+/*CSS for the utilities, mid section of the web app.*/
+
+.mid-section {
+    background-color: #8ab9ff;
+    margin: 10px 10px;
+    padding: 15px 5px;
+    height: 250px;
+}
+
+tr {
+    margin: 0px 20px;
+    height: 175px;
+}
+
+td {
+    background-color: #beebff;
+    border-radius: 4px;
+    box-shadow: 8px 8px 8px 0px #537172;
+    margin: 10px 10px;
+    padding: 0px 15px;
+    text-align: center;
+}
+
+div #mid-section {
+    margin: 0px 5px 0px 0px;
+    width: 100%;
+    height: 375px;
+}
+
+div #bott {
+    background-color: black;
+    margin: 20px 0px;
+}
+
+#top {
+    background-color: black;
+    text-align: right;
+    color: white;
+    margin: 15px 5px 0px 0px;
+    padding: 10px 10px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
+    margin: 0px 5px 0px 0px;
+    padding: 10px 10px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    background-color: #beebff;
+    color: white;
+}
+
+flex-box {
+    display: absolute;
+    margin: auto 10px;
+}

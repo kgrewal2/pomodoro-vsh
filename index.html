@@ -1,73 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Pomodoro</title>
+    <title>Pomodoro - Virtual Study Hall</title>
     <link rel="stylesheet" href="CSS/home.css">
+    <script src="Scripts/home.js"></script>
 </head>
+
 <body>
 
-<!--Navigation-->
-<div class="dark-bar" id="top-bar">
-    <label style="float: left;font-size: 30px">Code Devils - Pomodoro</label>
-    <a>About</a>
-    <a>Follow Us</a>
-</div>
-;
+    <!--Navigation
 
-
-<div class="center-card">
-
-    <div class="contact">
-        <!--<div class="alert">Welcome to CodeDevils</div>-->
-        <!--<form id="contactForm">
-            <p>
-                <input id="name" name="name" placeholder="Name" required type="text">
-            </p>
-            <p>
-                <input id="meetingID" name="meetingID" placeholder="Meeting ID" required type="text">
-            </p>
-            <p class="full">
-                <button type="submit">Submit</button>
-            </p>
-        </form>-->
+    <div class="dark-bar" id="top-bar">
+        <a href="index.html">Home</a>
+        <a>About</a>
+        <a>Follow Us</a>
     </div>
-    <label id="time-label">00:00</label>
-    <br><br>
-    <!--    <button class="startPomodoro" onclick="startTimer(25)">Pomodoro</button>-->
-    <!--    <button onclick="startTimer(5)">Short Break</button>-->
-    <!--    <button onclick="startTimer(15)">Long Break</button>-->
+-->
 
-    <form>
-        <label for="session-length">Session Length</label>
-        <select id="session-length" name="session-length">
-            <option value="25">25</option>
-            <option value="15">15</option>
-            <option value="10">10</option>
-        </select>
+    <header id="headline">
+        <h1 id="title">CodeDevils - ASU</h1>
+        <h2 id="title">Pomodoro - Virtual Study Hall</h2>
+    </header>
 
-        <label for="break-length">Break Length</label>
-        <select id="break-length" name="break-length">
-            <option value="15`">15</option>
-            <option value="5">5</option>
-            <option value="3">3</option>
-        </select>
-        <br><br>
-        <input onclick="startButtonListener(this)" style="color: blue" type="button" value="Start">
-        <input onclick="stopButtonListeners()" style="color: red" type="button" value="Stop">
-    </form>
+    <nav>
+        <ul class="nav-links" id="nav">
+            <li class="navigation" id="link"><a href="#page-bottom">Bottom</a></li>
+            <!--
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Custom Settings</a></li>
+            -->
+            <li class="navigation" id="link"><a href="./html/about.html" id="about">About</a></li>
+            <li class="navigation" id="link"><a href="./index.html">Home</a></li>
+        </ul>
+    </nav>
 
-    <br><br><br>
-    <div class="header" id="tasks">
-        <h2 style="margin:5px">Tasks</h2>
-        <input id="taskTitle" placeholder="Task" style="padding: 5px 10px" type="text">
-        <button class="addTaskButton" onclick="newElement()" style="padding: 5px 30px">Add</button>
+
+    <div class="mid-section">
+        <!-- Make a row, that will have 3 columns. -->
+        <div class="flex-box" id="frame">
+            <div class="container-fluid" id="top-section">
+                <table style="width:100%">
+                    <tr>
+                        <!-- Tasks Section. -->
+                        <td>
+                            <div class="header" id="tasks">
+                                <h2 style="margin:5px">Tasks</h2>
+                                <input id="taskTitle" placeholder="Task" type="text">
+                                <button class="addTaskButton" onclick="newElement()">Add</button>
+                            </div>
+                            <ul id="tasksList">
+                            </ul>
+                        </td>
+
+                        <!-- Timer Section-->
+                        <td>
+                            <!--<h2 id="time-label">00:00:00</h2>-->
+                            <div class="container-fluid" id="time-label">
+                                <span class="row" id="timer">
+                                    <h2 class="col-sm-6" id="count3">00</h2>
+                                    <h2 id="thingies"> : </h2>
+                                    <h2 class="col-sm-6" id="count4">00</h2>
+                                    <h2 id="thingies"> : </h2>
+                                    <h2 class="col-sm-6" id="count5">00</h2>
+                                </span>
+                            </div>
+
+                            <!-- Button Section Here. -->
+                            <div class="container-fluid" id="buttons">
+                                <section class="btn-grp" id="choices">
+                                    <div id="span-grp">
+                                        <select id="session" value="4" type="submit" onclick='getSession()'><option>SESSION LENGTH</option></select>
+                                        <select id="study" value="0" type="submit" onclick='getStudy()'><option>STUDY TIME</option></select>
+                                        <select id="break" value="1" type="submit" onclick='getBreak()'><option>BREAK TIME</option></select>
+                                        <button id="start" value="2" type="submit" onclick='checkInput()'>START</button>
+                                        <button id="stop" value="3" type="submit" onclick='getStop()'>STOP</button>
+                                        <!-- TODO 3/16:
+                            <button id="reset" value="4" type="submit" onclick='getReset()'>RESET</button>
+                        -->
+                                        <!--<div id="buttons">
+                                <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
+                                <button onclick="startTimer(5)">Short Break</button>
+                                <button onclick="startTimer(15)">Long Break</button>
+                                        -->
+                                    </div>
+                                    <audio id="ticking">
+                                        <source src="resources/Ticking_Clock-KevanGC-1934595011.mp3">
+                                    </audio>
+                                </section>
+                        </td>
+
+                        <!--Media column-->
+                        <td>
+                            <div class="header" id="media">
+                                <h2 style="margin:5px">Media</h2>
+                                <!--<button class="addTaskButton" onclick="newElement()">Add</button>
+                            </div> -->
+                                <ul id="mediaList">
+                                    <li><a id="spotify" target="_blank"
+                                           href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg">CodeDevils
+                                        Spotify</a></li>
+                                    <li><a href="https://beta.music.apple.com" id="appleMusic" target="_blank">Apple
+                                        Music</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+
+            <p id="dev-note">**NOTE from Developers (3/24/2020): Please note that this application has not been through tests as this point, for example we have yet to test whether the hours will count down properly. Also, the hours are set for 4, which is a standard
+                session length for CodeDevils' Virtual Study Hall (VSH). STOP button does not function.</p>
+        </div>
+        <!--<script language="javascript" type="application/javascript" src="script.js"></script>-->
+
+
+        <div class="container-fluid" id="bott">
+            <section id="top"><a href="#headline">Go To Top <span>&#94;</span></a></section>
+            <footer id="page-bottom">Created by: Stephanie Miranda & Karandeep Singh Grewal - smirand6@asu.edu && kgrewal2@asu.edu | March 23, 2020 |
+                <a href="https://www.thestephaniemiranda.com">Stephanie's Website</a>
+            </footer>
+        </div>
     </div>
-    <ul id="tasksList">
-    </ul>
-</div>
 
-<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-<script src="Scripts/home.js"></script>
 </body>
+
 </html>

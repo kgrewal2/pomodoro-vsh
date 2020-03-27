@@ -1,98 +1,67 @@
-/*
-// Initialize Firebase (ADD YOUR OWN DATA)
-const config = {
-    apiKey: "AIzaSyD55zBmfpkWqt1uRVw2Ddlcqa4e48FMq0E",
-    authDomain: "lisa-ca5ed.firebaseapp.com",
-    databaseURL: "https://lisa-ca5ed.firebaseio.com",
-    projectId: "lisa-ca5ed",
-    storageBucket: "lisa-ca5ed.appspot.com",
-    messagingSenderId: "655251167519",
-    appId: "1:655251167519:web:45c4f3f11ccda1fc44f82a",
-    measurementId: "G-C51PPVMKCV"
-};
-firebase.initializeApp(config);
-
-// Reference messages collection
-var meetingsRef = firebase.database().ref('meetings');
-*/
-var interval = 0;
-var sessionLength;
-var breakLength;
-var seconds;
-var isTimerRunning;
-var isReset;
-var startButtonObj;
-let timeLabel = document.getElementById("time-label");
-
-window.onload = () => {
-    isReset = true;
-};
+let timer_on = 0;
+let timerSwitch = false;var interval;
+var seconds = 0;
+//These times are the Study/Break times "built in"
+var twentyFive = 25;//25 min
+var fifTeen =  15;//15 min
+var ten =  10;//10 min
+var five=  5;//5 min
+var three =  3;//3 min
+let times = [twentyFive, fifTeen, ten, five, three];
+let session = [1, 2, 3, 4, 5, 6, 7, 8];
 
 /*Start Timer*/
 function startTimer(time) {
     clearInterval(interval);
-    seconds = time * 60 - 1;
+    seconds = time * 60;
+    console.log("In startTimer(time): " + time);
     interval = setInterval(changeTimeLabel, 1000);
-    isTimerRunning = true;
 }
 
-function startButtonListener(button) {
-    startButtonObj = button;
-    //Starts the timer for the first time or after the user press STOP button
-    if (isReset === true) {
-        toggleTimeLabelColor();
-        sessionLength = document.getElementById("session-length").value;
-        breakLength = document.getElementById("break-length").value;
-        startTimer(sessionLength);
-        isReset = false;
-        startButtonObj.value = "Pause";
-    }
-    //Pause the timer
-    else if (isTimerRunning === true) {
-        toggleTimeLabelColor();
-        clearInterval(interval);
-        isTimerRunning = false;
-        startButtonObj.value = "Play";
-    }
-    //Resume the timer
-    else {
-        toggleTimeLabelColor();
-        interval = setInterval(changeTimeLabel, 1000);
-        isTimerRunning = true;
-        startButtonObj.value = "Pause";
-    }
+/*Play ticking sound.*/
+function tickingPlay(){
+    const tickSound = document.getElementById("ticking");
+    tickSound.play();
 }
 
-function toggleTimeLabelColor() {
-    if (timeLabel.style.color === "white") {
-        timeLabel.style.color = "gray";
-    } else {
-        timeLabel.style.color = "white";
-    }
-}
-
-//Reset the timer
-function stopButtonListeners() {
-    clearInterval(interval);
-    seconds = sessionLength * 60;
-    changeTimeLabel();
-    timeLabel.style.color = "gray";
-    isReset = true;
-    startButtonObj.value = "Start";
+/*Stop ticking sound.*/
+function tickingStop(){
+    const tickSound = document.getElementById("ticking");
+    tickSound.pause();
 }
 
 /*Change time label*/
 function changeTimeLabel() {
+    //let timeLabel = document.getElementById("time-label");
+    //var selectedSession = 4;
+    let hrLabel = document.getElementById("count3");
+    let minLabel = document.getElementById("count4");
+    let secLabel = document.getElementById("count5");
+
     let min = ("0" + Math.floor(seconds / 60)).slice(-2);
     let sec = ("0" + seconds % 60).slice(-2);
+    let hr = 60 * 60;
     seconds--;
-    timeLabel.innerHTML = min + ":" + sec;
-    if (seconds === -1)
+    //timeLabel.innerHTML = hr + ":" + min + ":" + sec;
+    hrLabel.innerHTML = (hr * 4)/3600;
+    minLabel.innerHTML = min;
+    secLabel.innerHTML = sec;
+
+    if (seconds === -1){
         clearInterval(interval);
-    if (seconds < 10)
-        timeLabel.style.color = "red";
-    else
-        timeLabel.style.color = "white";
+        hrLabel.style.color = "black";
+        minLabel.style.color = "black";
+        secLabel.style.color = "black";
+        tickingStop();
+        getSwitch();
+    }
+    if (seconds < 10){
+        //timeLabel.style.color = "red";
+        hrLabel.style.color = "red";
+        minLabel.style.color = "red";
+        secLabel.style.color = "red";
+        tickingPlay();
+    }
 }
 
 
@@ -131,26 +100,144 @@ function toggleTaskStatus(e) {
     target.classList.toggle("checked");
 }
 
+/*Check that a time is selected for each elem, Study length, break/study times.*/
+function checkInput(){
+    var std = document.getElementById("study").innerHTML;
+    var brk = document.getElementById("break").innerHTML;
+    console.log("CHECKING std: " + std.value + " brk: " + brk);
+    if(std.includes("STUDY") && brk.includes("BREAK")){
+        alert("Please choose a study time and a break time before starting the timer. Thanks! :)");
+    }else if(std.includes("STUDY") || brk.includes("BREAK")){
+        alert("Please choose a study time AND a break time before starting the timer. Thanks! :)");
+    }else{
+        /*get the times from the dropdowns and pass that to startTime()*/
+        var stdMin = 0;
+        var brkMin = 0;
+        var std = document.getElementById("study").childNodes;
+        var brk = document.getElementById("break").childNodes;
+        var label = document.getElementById("time-label");
+        var timer = document.getElementById("timer").childNodes;
+        console.log("1 IN CHECK INPUT(): " + timer_on);
 
-/*document.getElementById('contactForm').addEventListener('submit', submitForm);
+        if(timer_on === 0){
+            //turn timer on
+            timer_on = 1;
+            console.log("2 timer_on: " + timer_on);
+            //These would be defualt times of 25 stdy and 5 brk
+            /*Getting the values from the drop down.*/
+            for(i = 0; i < std.length; i++){
+                if(!(std[i].selected)){
+                    //console.log("NOT SELECTED"), do nothing
+                }else{
+                    stdMin = std[i].value;//the study length chosen
+                    console.log("4 study SELECTED: " + stdMin);
+                    for(j = 0; j < brk.length; j++){
+                        if(!(brk[j].selected)){
+                            //console.log("NOT SELECTED"), do nothing
+                        }else{
+                            brkMin = brk[j].value;
+                            console.log("5 break SELECTED: " + brkMin);
+                        }
+                    }
+                }
+            }
 
-function submitForm(e) {
-    e.preventDefault();
-    var meetingName = document.getElementById("name").value;
-    var meetingID = document.getElementById("meetingID").value;
-    saveMessage(meetingName, meetingID);
-    document.querySelector('.alert').style.display = 'block';
-    setTimeout(function () {
-        document.querySelector('.alert').style.display = 'none';
-    }, 3000);
-}*/
-/*
-/!*FIREBASE*!/
-function saveMessage(meetingName, meetingID) {
-    var newMeetingRef = meetingsRef.push();
-    newMeetingRef.set({
-        name: meetingName,
-        meetingID: meetingID
-    });
-}*/
+            console.log("6 INNER TEXT: " + timer[1].innerText + " " + timer[5].innerText + " " + timer[9].innerText);
 
+            /*Checking timer*/
+            if(timer[1].innerText === '00' && timer[5].innerText === '00' && timer[9].innerText === '00'){
+                console.log("WE'VE NOW STARTED: " + stdMin + " " + brkMin);
+                console.log("TIMER_ON: " + timer_on);
+                startTimer(stdMin);
+            }else if(timer[1].innerText != '00' && timer[5].innerText != '00' && timer[9].innerText != '00'){
+                /*TODO 3/24/2020: implement stop/reset here*/
+                startTimer(stdMin);
+            }else if(seconds <= -1){
+                timer_on = 0;
+                startTimer(brkMin);
+            }
+        }else {
+            getSwitch();
+        }
+    }
+}
+
+/** Fill the study time drop down. */
+function getStudy(){
+    var option = "";
+
+    //This is the DOM manipulation
+    var dropDown = document.getElementById("study");
+    for (i = 0; i < times.length-2; i++) {
+         option += "<option id=\"time" + i + "\" value=\"" + times[i] + "\" onclick=\'pomodoro()\'>" + times[i] + "</option>";
+     }
+     dropDown.innerHTML = option;
+     var timer = document.getElementById("study").innerHTML.valueOf(option);
+     console.log("In getStudy: " + timer);
+}
+
+/** Fill the break time drop down. */
+function getBreak(){
+    var option = "";
+
+    //This is the DOM manipulation
+    var dropDown = document.getElementById("break");
+    for (i = 3; i < times.length; i++) {
+        option += "<option id=\"time" + i + "\" value=\"" + times[i] + "\" onclick=\'pomodoro()\'>" + times[i] + "</option>";
+    }
+    dropDown.innerHTML = option;
+
+    var timer = document.getElementById("break").innerHTML.valueOf(option);
+    console.log("In getBreak: " + timer);
+}
+
+/** Fill the session drop down. */
+function getSession(){
+    var option = "";
+
+    //This is the DOM manipulation
+    var dropDown = document.getElementById("session");
+    for (i = 0; i < session.length; i++) {
+            option += "<option id=\"time" + i + "\" value=\"" + session[i] + "\" onclick=\'pomodoro()\'>" + session[i] + "</option>";
+    }
+    dropDown.innerHTML = option;
+
+    //get the pomodoro counting in seconds
+    var timer = document.getElementById("session").innerHTML.valueOf(option);
+    console.log("In getSession: " + timer);
+    return timer;
+}
+
+function getSwitch() {
+    console.log("SWITCH: " + timer_on + " " + timerSwitch);
+    var std = document.getElementById("study").childNodes;
+    var brk = document.getElementById("break").childNodes;
+    var opt = document.getElementsByTagName("option");
+    var stdMin = 0;
+    var brkMin = 0;
+    for(i = 0; i < std.length; i++){
+         if(!(std[i].selected)){
+              console.log("NOT SELECTED")
+         }else{
+              stdMin = std[i].value;
+              console.log("study SELECTED: " + stdMin);
+              for(j = 0; j < brk.length; j++){
+                   brkMin = brk[j].value;
+                   console.log("break SELECTED: " + brkMin);
+              }
+         }
+    }
+    console.log("stdMin: " + stdMin + " brkMin: " + brkMin);
+
+    if(timerSwitch === false){
+         console.log("selected length: " + std.length);
+         timerSwitch = true;
+         startTimer(brkMin);
+         //pomodoro(brkMin, stdMin);
+    }else {
+        // document.body.style.background("lightgrey");
+         //getStart();
+         timerSwitch = false;
+         startTimer(stdMin);
+    }
+}
