@@ -6,58 +6,52 @@
     <title>Pomodoro - Virtual Study Hall</title>
     <link rel="stylesheet" href="CSS/home.css">
     <script src="Scripts/home.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <!--Navigation
+<!--Navigation
 
-    <div class="dark-bar" id="top-bar">
-        <a href="index.html">Home</a>
-        <a>About</a>
-        <a>Follow Us</a>
-    </div>
+<div class="dark-bar" id="top-bar">
+    <a href="index.html">Home</a>
+    <a>About</a>
+    <a>Follow Us</a>
+</div>
 -->
 
-    <header id="headline">
-        <h1 id="title">CodeDevils - ASU</h1>
-        <h2 id="title">Pomodoro - Virtual Study Hall</h2>
-    </header>
+<header id="headline">
+    <h1 class="title">CodeDevils - ASU</h1>
+    <h2 class="title">Pomodoro - Virtual Study Hall</h2>
+</header>
 
-    <nav>
-        <ul class="nav-links" id="nav">
-            <li class="navigation" id="link"><a href="#page-bottom">Bottom</a></li>
-            <!--
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Custom Settings</a></li>
-            -->
-            <li class="navigation" id="link"><a href="./html/about.html" id="about">About</a></li>
-            <li class="navigation" id="link"><a href="./index.html">Home</a></li>
-        </ul>
-    </nav>
+<nav id="topbar">
+    <a href="./html/about.html" id="about">About</a>
+    <a href="./index.html">Home</a>
+</nav>
 
 
-    <div class="mid-section">
-        <!-- Make a row, that will have 3 columns. -->
-        <div class="flex-box" id="frame">
-            <div class="container-fluid" id="top-section">
-                <table style="width:100%">
-                    <tr>
-                        <!-- Tasks Section. -->
-                        <td>
-                            <div class="header" id="tasks">
-                                <h2 style="margin:5px">Tasks</h2>
-                                <input id="taskTitle" placeholder="Task" type="text">
-                                <button class="addTaskButton" onclick="newElement()">Add</button>
-                            </div>
-                            <ul id="tasksList">
-                            </ul>
-                        </td>
+<div class="mid-section">
+    <!-- Make a row, that will have 3 columns. -->
+    <div class="flex-box" id="frame">
+        <div class="container-fluid" id="top-section">
+            <table style="width:100%">
+                <tr>
+                    <!-- Tasks Section. -->
+                    <td>
+                        <div class="tableHeader" id="tasks">
+                            <h2 style="margin:5px">Tasks</h2>
+                            <input id="taskTitle" placeholder="Task" type="text">
+                            <button class="addTaskButton" onclick="newElement()">Add</button>
+                        </div>
+                        <ul id="tasksList">
+                        </ul>
+                    </td>
 
-                        <!-- Timer Section-->
-                        <td>
-                            <!--<h2 id="time-label">00:00:00</h2>-->
-                            <div class="container-fluid" id="time-label">
+                    <!-- Timer Section-->
+                    <td>
+                        <!--<h2 id="time-label">00:00:00</h2>-->
+                        <div class="container-fluid" id="time-label">
                                 <span class="row" id="timer">
                                     <h2 class="col-sm-6" id="count3">00</h2>
                                     <h2 id="thingies"> : </h2>
@@ -65,65 +59,91 @@
                                     <h2 id="thingies"> : </h2>
                                     <h2 class="col-sm-6" id="count5">00</h2>
                                 </span>
-                            </div>
+                        </div>
 
-                            <!-- Button Section Here. -->
-                            <div class="container-fluid" id="buttons">
-                                <section class="btn-grp" id="choices">
-                                    <div id="span-grp">
-                                        <select id="session" value="4" type="submit" onclick='getSession()'><option>SESSION LENGTH</option></select>
-                                        <select id="study" value="0" type="submit" onclick='getStudy()'><option>STUDY TIME</option></select>
-                                        <select id="break" value="1" type="submit" onclick='getBreak()'><option>BREAK TIME</option></select>
-                                        <button id="start" value="2" type="submit" onclick='checkInput()'>START</button>
-                                        <button id="stop" value="3" type="submit" onclick='getStop()'>STOP</button>
-                                        <!-- TODO 3/16:
-                            <button id="reset" value="4" type="submit" onclick='getReset()'>RESET</button>
-                        -->
-                                        <!--<div id="buttons">
-                                <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
-                                <button onclick="startTimer(5)">Short Break</button>
-                                <button onclick="startTimer(15)">Long Break</button>
-                                        -->
-                                    </div>
-                                    <audio id="ticking">
-                                        <source src="resources/Ticking_Clock-KevanGC-1934595011.mp3">
-                                    </audio>
-                                </section>
-                        </td>
-
-                        <!--Media column-->
-                        <td>
-                            <div class="header" id="media">
-                                <h2 style="margin:5px">Media</h2>
-                                <!--<button class="addTaskButton" onclick="newElement()">Add</button>
-                            </div> -->
-                                <ul id="mediaList">
-                                    <li><a id="spotify" target="_blank"
-                                           href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg">CodeDevils
+                        <!-- Button Section Here. -->
+                        <div class="container-fluid" id="buttons">
+                            <section class="btn-grp" id="choices">
+                                <div id="span-grp">
+                                    <select id="session" onclick='getSession()' type="submit" value="4">
+                                        <option>SESSION LENGTH</option>
+                                    </select>
+                                    <select id="study" onclick='getStudy()' type="submit" value="0">
+                                        <option>STUDY TIME</option>
+                                    </select>
+                                    <select id="break" onclick='getBreak()' type="submit" value="1">
+                                        <option>BREAK TIME</option>
+                                    </select>
+                                    <button id="start" onclick='checkInput()' type="submit" value="2">START</button>
+                                    <button id="stop" onclick='getStop()' type="submit" value="3">STOP</button>
+                                    <!-- TODO 3/16:
+                        <button id="reset" value="4" type="submit" onclick='getReset()'>RESET</button>
+                    -->
+                                    <!--<div id="buttons">
+                            <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
+                            <button onclick="startTimer(5)">Short Break</button>
+                            <button onclick="startTimer(15)">Long Break</button>
+                                    -->
+                                </div>
+                                <audio id="ticking">
+                                    <source src="resources/sounds/Ticking_Clock-KevanGC-1934595011.mp3">
+                                </audio>
+                            </section>
+                        </div>
+                    </td>
+                    <!--Media column-->
+                    <td>
+                        <div class="header" id="media">
+                            <h2 style="margin:5px">Media</h2>
+                            <!--<button class="addTaskButton" onclick="newElement()">Add</button>
+                        </div> -->
+                            <ul id="mediaList">
+                                <li>
+                                    <a href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg"
+                                       id="spotify"
+                                       target="_blank">CodeDevils
                                         Spotify</a></li>
-                                    <li><a href="https://beta.music.apple.com" id="appleMusic" target="_blank">Apple
-                                        Music</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                </div>
-            </div>
-
-            <p id="dev-note">**NOTE from Developers (3/24/2020): Please note that this application has not been through tests as this point, for example we have yet to test whether the hours will count down properly. Also, the hours are set for 4, which is a standard
-                session length for CodeDevils' Virtual Study Hall (VSH). STOP button does not function.</p>
-        </div>
-        <!--<script language="javascript" type="application/javascript" src="script.js"></script>-->
-
-
-        <div class="container-fluid" id="bott">
-            <section id="top"><a href="#headline">Go To Top <span>&#94;</span></a></section>
-            <footer id="page-bottom">Created by: Stephanie Miranda & Karandeep Singh Grewal - smirand6@asu.edu && kgrewal2@asu.edu | March 23, 2020 |
-                <a href="https://www.thestephaniemiranda.com">Stephanie's Website</a>
-            </footer>
+                                <li><a href="https://beta.music.apple.com" id="appleMusic" target="_blank">Apple
+                                    Music</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
+
+    <p id="dev-note">**NOTE from Developers (3/24/2020): Please note that this application has not been through tests as
+        this point, for example we have yet to test whether the hours will count down properly. Also, the hours are set
+        for 4, which is a standard
+        session length for CodeDevils' Virtual Study Hall (VSH). STOP button does not function.</p>
+</div>
+
+
+</div>
+<footer>
+    <b>Developers</b>
+    <br>
+    Stephanie Miranda
+    <a href="mailto:smirand6@asu.edu"><i aria-hidden="true" class="fa fa-envelope-o"></i></a>
+    <a href="https://www.thestephaniemiranda.com"><i aria-hidden="true" class="fa fa-globe"></i></a>
+    <br>
+    Karandeep Singh Grewal &ensp;
+    <a href="mailto:kgrewal2@asu.edu"><i aria-hidden="true" class="fa fa-envelope-o"></i></a>
+    <br><br>
+    <b>Backgroung Image</b>
+    <br>
+    Daniel Leone
+    <a href="https://unsplash.com/@danielleone?utm_medium=referral&amp;utm_campaign=photographer-credit">
+        <svg style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+             viewBox="0 0 32 32"
+             xmlns="http://www.w3.org/2000/svg"><title>unsplash-logo</title>
+            <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+        </svg>
+    </a>
+
+
+</footer>
 
 </body>
 

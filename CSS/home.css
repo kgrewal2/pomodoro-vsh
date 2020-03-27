@@ -1,98 +1,52 @@
-html {
-    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    margin: 0px 25px;
-    /*This will be able to be customized.*/
-    background-color: lightgrey;
-    background-image: url("./images/AZ_1.jpg");
-    background-repeat: no-repeat;
-    background-position: center top;
-}
-
 body {
+    --transparentWhite: rgba(255, 255, 255, 0.25);
+    font-family: 'Helvetica', 'Roboto', 'Source Sans Pro', sans-serif;
     margin: 25px 50px;
-    /*padding: 0px;*/
-    /*This will be able to be customizable.*/
-    background-color: lightgrey;
-    opacity: 100%;
-    /*align-content: center;*/
+    background-image: url("../resources/images/mountainsBackground.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 header {
-    background-color: #8ab9ff;
-    color: white;
+    background-color: var(--transparentWhite);
     text-align: center;
     padding: 25px;
 }
 
+.title {
+    font-family: 'Lato', sans-serif;;
+    font-weight: bold;
+    font-size: 42px;
+    color: rgb(255, 255, 255);
+    margin: 10px;
+}
+
 nav {
-    background-color: #5689cc;
+    background-color: var(--transparentWhite);
     color: white;
     font-size: 16px;
     list-style-type: none;
     overflow: hidden;
     margin: 0px 0px;
-    padding: 5px 5px;
+    padding: 10px 20px;
 }
 
-#title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 42px;
-    color: black;
-    margin: 10px;
-    background-color: #8ab9ff;
-}
-
-
-/*
-.dark-bar {
-    background: #141414;
-    font-size: 14px;
-    color: #b9b9b9;
-    padding: 10px;
-    text-align: center;
-}
-
-.dark-bar a {
-    padding: 0 20px;
-    text-decoration: none;
-}
-
-.dark-bar a:hover {
+nav a {
     color: white;
-    cursor: pointer;
-}
-
-.dark-bar a:focus,
-a:visited,
-a:active,
-a:link {
-    color: #b9b9b9;
-}
-*/
-
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-h3 {
-    text-align: inherit;
-    font-size: 42px;
 }
 
 p {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 28px;
-    text-align: justified;
+    text-align: justify;
     background-color: #beebff;
     color: black;
     margin: 20px 20px;
 }
 
 #dev-note {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
-    text-align: justified;
+    text-align: justify;
     background-color: #b0d1d1;
     color: black;
     margin: 20px 20px;
@@ -107,11 +61,9 @@ p {
 .buttons {
     padding: 0px;
     font-size: 48px;
-    display: center;
 }
 
 button {
-    display: center;
     margin: 0 0.3em 0.3em 0;
     border: 1px solid #006fdd;
     border-radius: 3px;
@@ -198,24 +150,6 @@ ul.nav-links {
     overflow: hidden;
 }
 
-li#link.navigation {
-    background-color: #5689cc;
-    text-decoration: none;
-}
-
-li.navigation {
-    background-color: #5689cc;
-    float: right;
-}
-
-li.navigation a {
-    background-color: #5689cc;
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 4px 4px;
-}
-
 li.navigation a:hover {
     background-color: #beebff;
     color: black;
@@ -266,7 +200,7 @@ li.navigation a:hover {
     text-align: center;
 }
 
-.row>h2 {
+.row > h2 {
     text-align: center;
     padding: 5px 0px;
     font-size: 48px;
@@ -314,11 +248,6 @@ div #mid-section {
     height: 375px;
 }
 
-div #bott {
-    background-color: black;
-    margin: 20px 0px;
-}
-
 #top {
     background-color: black;
     text-align: right;
@@ -328,27 +257,24 @@ div #bott {
 }
 
 footer {
-    background-color: black;
+    background-color: var(--transparentWhite);
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    font-style: italic;
-    text-align: center;
-    margin: 0px 5px 0px 0px;
-    padding: 10px 10px;
+    text-align: left;
+    padding: 10px 20px;
 }
 
 footer a {
-    color: white;
+    color: #e3e3e3;
+    padding: 0px 5px;
     text-decoration: none;
 }
 
 footer a:hover {
-    background-color: #beebff;
     color: white;
 }
 
 flex-box {
-    display: absolute;
     margin: auto 10px;
 }
+
