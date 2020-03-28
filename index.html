@@ -6,118 +6,151 @@
     <title>Pomodoro - Virtual Study Hall</title>
     <link rel="stylesheet" href="CSS/home.css">
     <script src="Scripts/home.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/0c6d92e5e7.js"></script>
 </head>
 
 <body>
-
-<!--Navigation
-
-<div class="dark-bar" id="top-bar">
-    <a href="index.html">Home</a>
-    <a>About</a>
-    <a>Follow Us</a>
-</div>
--->
-
-<header id="headline">
+<header>
     <h1 class="title">CodeDevils - ASU</h1>
     <h2 class="title">Pomodoro - Virtual Study Hall</h2>
 </header>
 
-<nav id="topbar">
-    <a href="./html/about.html" id="about">About</a>
+<nav>
     <a href="./index.html">Home</a>
+    <a href="./html/about.html" id="about">About</a>
+    <a href="https://beta.music.apple.com" style="float: right"><i class="fab fa-apple"></i> Apple Music</a>
+    <a href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg" style="float: right"><i
+            class="fab fa-spotify"></i> Spotify</a>
 </nav>
 
+<div class="middleSection">
+    <div id="timer-span">
+        <label id="count3">00</label>
+        <label> : </label>
+        <label id="count4">00</label>
+        <label> : </label>
+        <label id="count5">00</label>
+    </div>
 
-<div class="mid-section">
-    <!-- Make a row, that will have 3 columns. -->
-    <div class="flex-box" id="frame">
-        <div class="container-fluid" id="top-section">
-            <table style="width:100%">
-                <tr>
-                    <!-- Tasks Section. -->
-                    <td>
-                        <div class="tableHeader" id="tasks">
-                            <h2 style="margin:5px">Tasks</h2>
-                            <input id="taskTitle" placeholder="Task" type="text">
-                            <button class="addTaskButton" onclick="newElement()">Add</button>
-                        </div>
-                        <ul id="tasksList">
-                        </ul>
-                    </td>
+    <div class="row">
+        <div class="column">
+            <h2 style="margin:5px;color: white">Tasks</h2>
+            <input id="taskTitle" placeholder="Task" type="text">
+            <button class="addTaskButton" onclick="newElement()">Add</button>
+        </div>
 
-                    <!-- Timer Section-->
-                    <td>
-                        <!--<h2 id="time-label">00:00:00</h2>-->
-                        <div class="container-fluid" id="time-label">
-                                <span class="row" id="timer">
-                                    <h2 class="col-sm-6" id="count3">00</h2>
-                                    <h2 id="thingies"> : </h2>
-                                    <h2 class="col-sm-6" id="count4">00</h2>
-                                    <h2 id="thingies"> : </h2>
-                                    <h2 class="col-sm-6" id="count5">00</h2>
-                                </span>
-                        </div>
+        <div class="column">
 
-                        <!-- Button Section Here. -->
-                        <div class="container-fluid" id="buttons">
-                            <section class="btn-grp" id="choices">
-                                <div id="span-grp">
-                                    <select id="session" onclick='getSession()' type="submit" value="4">
-                                        <option>SESSION LENGTH</option>
-                                    </select>
-                                    <select id="study" onclick='getStudy()' type="submit" value="0">
-                                        <option>STUDY TIME</option>
-                                    </select>
-                                    <select id="break" onclick='getBreak()' type="submit" value="1">
-                                        <option>BREAK TIME</option>
-                                    </select>
-                                    <button id="start" onclick='checkInput()' type="submit" value="2">START</button>
-                                    <button id="stop" onclick='getStop()' type="submit" value="3">STOP</button>
-                                    <!-- TODO 3/16:
-                        <button id="reset" value="4" type="submit" onclick='getReset()'>RESET</button>
-                    -->
-                                    <!--<div id="buttons">
-                            <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>
-                            <button onclick="startTimer(5)">Short Break</button>
-                            <button onclick="startTimer(15)">Long Break</button>
-                                    -->
-                                </div>
-                                <audio id="ticking">
-                                    <source src="resources/sounds/Ticking_Clock-KevanGC-1934595011.mp3">
-                                </audio>
-                            </section>
-                        </div>
-                    </td>
-                    <!--Media column-->
-                    <td>
-                        <div class="header" id="media">
-                            <h2 style="margin:5px">Media</h2>
-                            <!--<button class="addTaskButton" onclick="newElement()">Add</button>
-                        </div> -->
-                            <ul id="mediaList">
-                                <li>
-                                    <a href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg"
-                                       id="spotify"
-                                       target="_blank">CodeDevils
-                                        Spotify</a></li>
-                                <li><a href="https://beta.music.apple.com" id="appleMusic" target="_blank">Apple
-                                    Music</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div style="width:100%;display: table; border-spacing: 10px;table-layout: fixed">
+                <div style="display: table-row;width: 30%">
+                    <label for="session-length" style="display: table-cell">Session Length</label>
+                    <select id="session-length" name="session-length" style="display: table-cell">
+                        <option value="25">25</option>
+                        <option value="15">15</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div style="display: table-row">
+                    <label for="break-length" style="display: table-cell">Break Length</label>
+                    <select id="break-length" name="break-length" style="display: table-cell">
+                        <option value="15">15</option>
+                        <option value="5">5</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+
+            </div>
+            <button>
+                Start
+            </button>
+            <button>
+                Stop
+            </button>
         </div>
     </div>
 
-    <p id="dev-note">**NOTE from Developers (3/24/2020): Please note that this application has not been through tests as
-        this point, for example we have yet to test whether the hours will count down properly. Also, the hours are set
-        for 4, which is a standard
-        session length for CodeDevils' Virtual Study Hall (VSH). STOP button does not function.</p>
+
 </div>
+
+<!--<div class="mid-section">-->
+<!--        <div class="column">-->
+<!--            <div class="tableHeader" id="tasks">-->
+<!--                <h2 style="margin:5px">Tasks</h2>-->
+<!--                <input id="taskTitle" placeholder="Task" type="text">-->
+<!--                <button class="addTaskButton" onclick="newElement()">Add</button>-->
+<!--            </div>-->
+<!--            <ul id="tasksList">-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="column">-->
+<!--            <div class="container-fluid" id="time-label">-->
+<!--                                <span class="row" id="timer">-->
+<!--                                    <h2 class="col-sm-6" id="count3">00</h2>-->
+<!--                                    <h2 id="thingies"> : </h2>-->
+<!--                                    <h2 class="col-sm-6" id="count4">00</h2>-->
+<!--                                    <h2 id="thingies"> : </h2>-->
+<!--                                    <h2 class="col-sm-6" id="count5">00</h2>-->
+<!--                                </span>-->
+<!--            </div>-->
+<!--            <section class="btn-grp" id="choices">-->
+<!--                <div id="span-grp">-->
+<!--                    <select id="session" onclick='getSession()' type="submit" value="4">-->
+<!--                        <option>SESSION LENGTH</option>-->
+<!--                    </select>-->
+<!--                    <select id="study" onclick='getStudy()' type="submit" value="0">-->
+<!--                        <option>STUDY TIME</option>-->
+<!--                    </select>-->
+<!--                    <select id="break" onclick='getBreak()' type="submit" value="1">-->
+<!--                        <option>BREAK TIME</option>-->
+<!--                    </select>-->
+<!--                    <button id="start" onclick='checkInput()' type="submit" value="2">START</button>-->
+<!--                    <button id="stop" onclick='getStop()' type="submit" value="3">STOP</button>-->
+<!--                    &lt;!&ndash; TODO 3/16:-->
+<!--        <button id="reset" value="4" type="submit" onclick='getReset()'>RESET</button>-->
+<!--    &ndash;&gt;-->
+<!--                    &lt;!&ndash;<div id="buttons">-->
+<!--            <button id="startPomodoro" onclick="startTimer(25)">Pomodoro</button>-->
+<!--            <button onclick="startTimer(5)">Short Break</button>-->
+<!--            <button onclick="startTimer(15)">Long Break</button>-->
+<!--                    &ndash;&gt;-->
+<!--                </div>-->
+<!--                <audio id="ticking">-->
+<!--                    <source src="resources/sounds/Ticking_Clock-KevanGC-1934595011.mp3">-->
+<!--                </audio>-->
+<!--            </section>-->
+<!--        </div>-->
+<!--        <div class="column">-->
+
+<!--            <div class="header" id="media">-->
+<!--                <h2 style="margin:5px">Media</h2>-->
+<!--                &lt;!&ndash;<button class="addTaskButton" onclick="newElement()">Add</button>-->
+<!--            </div> &ndash;&gt;-->
+<!--                <ul id="mediaList">-->
+<!--                    <li>-->
+<!--                        <a href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg"-->
+<!--                           id="spotify"-->
+<!--                           target="_blank">CodeDevils-->
+<!--                            Spotify</a></li>-->
+<!--                    <li><a href="https://beta.music.apple.com" id="appleMusic" target="_blank">Apple-->
+<!--                        Music</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <table style="width:100%">-->
+<!--                        &lt;!&ndash; Button Section Here. &ndash;&gt;-->
+<!--                        <div class="container-fluid" id="buttons">-->
+
+<!--                        </div>-->
+<!--            </table>-->
+
+<!--    <p id="developerNote">-->
+<!--        Note from Developers: Please note that this application has not been through tests as-->
+<!--        this point, for example we have yet to test whether the hours will count down properly. Also, the hours are set-->
+<!--        for 4, which is a standard-->
+<!--        session length for CodeDevils' Virtual Study Hall (VSH). STOP button does not function.-->
+<!--    </p>-->
+<!--</div>-->
 
 
 </div>
@@ -125,11 +158,17 @@
     <b>Developers</b>
     <br>
     Stephanie Miranda
-    <a href="mailto:smirand6@asu.edu"><i aria-hidden="true" class="fa fa-envelope-o"></i></a>
-    <a href="https://www.thestephaniemiranda.com"><i aria-hidden="true" class="fa fa-globe"></i></a>
+    <a href="mailto:smirand6@asu.edu">
+        <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.thestephaniemiranda.com">
+        <i class="fas fa-globe-americas"></i>
+    </a>
     <br>
     Karandeep Singh Grewal &ensp;
-    <a href="mailto:kgrewal2@asu.edu"><i aria-hidden="true" class="fa fa-envelope-o"></i></a>
+    <a href="mailto:kgrewal2@asu.edu">
+        <i class="fas fa-envelope"></i>
+    </a>
     <br><br>
     <b>Backgroung Image</b>
     <br>
