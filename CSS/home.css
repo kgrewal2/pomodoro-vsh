@@ -1,6 +1,10 @@
+*{
+    font-family: 'Helvetica Neue', 'Roboto', 'Source Sans Pro', sans-serif;
+}
+
 body {
     --transparentBlack: rgba(0, 0, 0, 0.32);
-    font-family: 'Helvetica', 'Roboto', 'Source Sans Pro', sans-serif;
+
     margin: 25px 50px;
     /*background: url("../resources/images/mountainsBackground.jpg") no-repeat center center fixed;*/
     /*background-size: cover;*/
@@ -37,53 +41,39 @@ nav a {
 }
 
 
-#developerNote {
-    font-size: 12px;
-    text-align: justify;
-    color: lightgray;
-    margin: 10px 20px;
-}
-
 #time-label {
     padding: 0px;
     font-size: 48px;
     text-align: center;
 }
 
-ul {
+#taskList {
     margin: 0;
     padding: 0;
 }
 
-ul li {
+#taskList li {
     cursor: pointer;
     position: relative;
-    padding: 12px 8px 12px 40px;
+    margin: 5px 0px;
+    padding: 12px;
     list-style-type: none;
-    background: #eee;
+    background: var(--transparentBlack);
     font-size: 18px;
-    transition: 0.2s;
+    transition: 2s;
+    border-radius: 15px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-ul li:nth-child(odd) {
-    background: #f9f9f9;
-}
-
-ul li:hover {
-    background: #ddd;
-}
-
-ul li.checked {
-    background: #888;
-    color: #fff;
+#taskList li.checked {
+    color: rgba(255, 255, 255, 0.34);
     text-decoration: line-through;
 }
 
-ul li.checked::before {
+#taskList li.checked::before {
     content: '';
     position: absolute;
     border-color: #fff;
@@ -100,31 +90,13 @@ ul li.checked::before {
     position: absolute;
     right: 0;
     top: 0;
+    color: lightgray;
     padding: 12px 16px 12px 16px;
 }
 
 .close:hover {
-    background-color: #f44336;
     color: white;
 }
-
-
-/* The list for the nav bar. */
-
-ul.nav-links {
-    margin: 5px 0px;
-    padding: 2px 2px;
-    font-size: 16px;
-    list-style-type: none;
-    overflow: hidden;
-}
-
-li.navigation a:hover {
-    background-color: var(--transparentBlack);
-    color: black;
-    padding: 4px 4px;
-}
-
 
 .row {
     display: grid;
@@ -140,20 +112,33 @@ li.navigation a:hover {
     font-size: 48px;
 }
 
+.customButton{
+    font-weight: bold;
+    border-radius: 10px;
+    user-select: none;
+    padding: 10px;
+}
+
+.customButton:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.customButton:active{
+    filter:brightness(90%);
+}
+
+#startTimerButton{
+    background: rgba(16, 209, 0, 0.9);
+}
+
+#stopTimerButton{
+    background: rgba(255, 94, 115, 0.9);
+}
+
+
+
 /*CSS for the utilities, mid section of the web app.*/
-
-footer {
-    background-color: var(--transparentBlack);
-    color: white;
-    font-size: 16px;
-    text-align: left;
-    padding: 10px 20px;
-}
-
-footer a {
-    color: #e3e3e3;
-    padding: 0px 5px;
-}
 
 .middleSection {
     background: var(--transparentBlack);
@@ -183,24 +168,29 @@ footer a {
     color: white;
 }
 
-select {
-    font-size: 16px;
-    font-family: sans-serif;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.3;
-    padding: .2em .2em .3em .2em;
-    width: 100px;
-    box-sizing: border-box;
-    margin: 0px 20px 0px 5px;
-    border: 0px;
-    border-radius: .5em;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: var(--transparentBlack)
+select{
+    width: 100%;
 }
 
+#developerNote {
+    font-size: 12px;
+    text-align: justify;
+    color: lightgray;
+    margin: 10px 20px;
+}
 
+footer {
+    background-color: var(--transparentBlack);
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    padding: 10px 20px;
+}
+
+footer a {
+    color: #e3e3e3;
+    padding: 0px 5px;
+}
 
 
 
