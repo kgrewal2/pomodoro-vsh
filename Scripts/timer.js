@@ -8,6 +8,8 @@ var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+/*YouTube embedded player*/
 var player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -35,6 +37,7 @@ function stopVideo() {
     player.stopVideo();
 }
 
+/*Start Timer Control*/
 function startTimer() {
     clearInterval(interval);
     if(isTimerRunning===false){
@@ -45,14 +48,16 @@ function startTimer() {
     sessionLength = sessionLength.options[sessionLength.selectedIndex].value;
     sessionTimeLeft = sessionLength;
     breakLength = document.getElementById("breakLength");
+    console.log(breakLength);
     breakLength = breakLength.options[breakLength.selectedIndex].value;
+    console.log(breakLength);
     breakTimeLeft = breakLength;
     interval = setInterval(updateTimeLabel,1000);
 }
 
 function startBreak(){
     breakTimeLeft--;
-    player.playVideo();
+    player.playVideo();//play YouTube embedded player @ break.
     if(breakTimeLeft==0){
         player.stopVideo();
         sessionTimeLeft=sessionLength;
@@ -72,10 +77,24 @@ function updateTimeLabel() {
     minutesLabel.innerHTML = minutes;
     secondsLabel.innerHTML = seconds;
     console.log(sessionTimeLeft+" "+breakTimeLeft);
+    if(sessionTimeLeft < 10){
+        tickingPlay();
+    }
     if(sessionTimeLeft==0)
     {
+        tickingStop();
         startBreak();
     }
 }
 
+/*Play ticking sound.*/
+function tickingPlay(){
+    const tickSound = document.getElementById("ticking");
+    tickSound.play();
+}
 
+/*Stop ticking sound.*/
+function tickingStop(){
+    const tickSound = document.getElementById("ticking");
+    tickSound.pause();
+}

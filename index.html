@@ -11,111 +11,111 @@
 </head>
 
 <body>
-<header>
-    <h1 class="title">CodeDevils - ASU</h1>
-    <h2 class="title">Pomodoro - Virtual Study Hall</h2>
-</header>
+    <header>
+        <h1 class="title">CodeDevils - ASU</h1>
+        <h2 class="title">Pomodoro - Virtual Study Hall</h2>
+    </header>
 
-<nav>
-    <a href="./index.html">Home</a>
-    <a href="./html/about.html" id="about">About</a>
-    <a href="https://beta.music.apple.com" style="float: right"><i class="fab fa-apple"></i> Apple Music</a>
-    <a href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg" style="float: right"><i
+    <nav>
+        <a href="./index.html">Home</a>
+        <a href="./html/about.html" id="about">About</a>
+        <a target="_blank" href="https://www.youtube.com/playlist?list=PLF3TLWNmsDCewZ0h4ipsgBwI_znWbGE3p" style="float:right"><i class="fab fa-youtube"></i> YouTube
+        </a>
+        <a target="_blank" href="https://beta.music.apple.com" style="float: right"><i class="fab fa-apple"></i> Apple Music</a>
+        <a target="_blank" href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg" style="float: right"><i
             class="fab fa-spotify"></i> Spotify</a>
-</nav>
+    </nav>
 
-<div style="" id="player"></div>
-
-<div class="middleSection">
-    <div id="timer-span">
-        <label id="hours">00</label>
-        <label> : </label>
-        <label id="minutes">00</label>
-        <label> : </label>
-        <label id="seconds">00</label>
-    </div>
-
-    <div class="row">
-        <div class="column">
-            <h2 style="margin:5px;color: white">Tasks</h2>
-            <input id="taskTitle" placeholder="Task" type="text">
-            <button id="addTaskButton" onclick="newElement()">Add</button>
-            <ul id="taskList">
-            </ul>
+    <div class="middleSection">
+        <div id="timer-span">
+            <label id="hours">00</label>
+            <label> : </label>
+            <label id="minutes">00</label>
+            <label> : </label>
+            <label id="seconds">00</label>
         </div>
 
-        <div class="column">
+        <div class="row">
+            <div class="column">
+                <h2 style="margin:5px;color: white">Tasks</h2>
+                <input id="taskTitle" placeholder="Task" type="text">
+                <button class="customButton" id="addTaskButton" onclick="newElement()">Add</button>
+                <ul id="taskList">
+                </ul>
+            </div>
 
-            <div style="width:100%;display: table; border-spacing: 10px;table-layout: fixed">
-                <div style="display: table-row;width: 30%">
-                    <label style="display: table-cell">Hours</label>
-                    <input type="number" min="0" max="24" step="1" value="2" id="totalHours">
-                </div>
-                <div style="display: table-row;width: 30%">
-                    <label style="display: table-cell">Minutes</label>
-                    <input type="number" min="0" max="59" step="15" value="0" id="totalMinutes">
-                </div>
-                <div style="display: table-row;width: 30%">
-                    <label for="sessionLength" style="display: table-cell">Session Length</label>
-                    <select id="sessionLength" name="sessionLength" style="display: table-cell">
+            <div class="column">
+
+                <div style="width:100%;display: table; border-spacing: 10px;table-layout: fixed">
+                    <div style="display: table-row;width: 30%">
+                        <label style="display: table-cell">Hours</label>
+                        <input type="number" min="0" max="24" step="1" value="2" id="totalHours">
+                    </div>
+                    <div style="display: table-row;width: 30%">
+                        <label style="display: table-cell">Minutes</label>
+                        <input type="number" min="0" max="59" step="15" value="0" id="totalMinutes">
+                    </div>
+                    <div style="display: table-row;width: 30%">
+                        <label for="sessionLength" style="display: table-cell">Session Length</label>
+                        <select id="sessionLength" name="sessionLength" style="display: table-cell">
                         <option value="25">25</option>
                         <option value="15">15</option>
                         <option value="10">10</option>
                     </select>
-                </div>
-                <div style="display: table-row">
-                    <label for="breakLength" style="display: table-cell">Break Length</label>
-                    <select id="breakLength" name="breakLength" style="display: table-cell">
+                    </div>
+                    <div style="display: table-row">
+                        <label for="breakLength" style="display: table-cell">Break Length</label>
+                        <select id="breakLength" name="breakLength" style="display: table-cell">
                         <option value="15">15</option>
                         <option value="5">5</option>
                         <option value="3">3</option>
                     </select>
-                </div>
-                <div style="display: table-row; width: 100%;">
-                    <span class="customButton" style="display: table-cell" id="startTimerButton" onclick="startTimer()">
+                    </div>
+                    <div style="display: table-row; width: 100%;">
+                        <span class="customButton" style="display: table-cell" id="startTimerButton" onclick="startTimer()">
                         Start
                     </span>
-                    <span class="customButton" style="display: table-cell" id="stopTimerButton" onclick="stopButton()">
+                        <span class="customButton" style="display: table-cell" id="stopTimerButton" onclick="stopButton()">
                         Stop
                     </span>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
     </div>
-</div>
 
-</div>
-<footer>
-    <b>Developers</b>
-    <br>
-    Stephanie Miranda
-    <a href="mailto:smirand6@asu.edu">
-        <i class="fas fa-envelope"></i>
-    </a>
-    <a href="https://www.thestephaniemiranda.com">
-        <i class="fas fa-globe-americas"></i>
-    </a>
-    <br>
-    Karandeep Singh Grewal &ensp;
-    <a href="mailto:kgrewal2@asu.edu">
-        <i class="fas fa-envelope"></i>
-    </a>
-    <br><br>
-    <b>Backgroung Image</b>
-    <br>
-    Daniel Leone
-    <a href="https://unsplash.com/@danielleone?utm_medium=referral&amp;utm_campaign=photographer-credit">
-        <svg style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
-             viewBox="0 0 32 32"
-             xmlns="http://www.w3.org/2000/svg"><title>unsplash-logo</title>
+    <div class="bottsection">
+        <!--<div id="player"></div>-->
+        <div id="ticking"></div>
+    </div>
+
+    </div>
+    <footer>
+        <b>Developers</b>
+        <br> Stephanie Miranda
+        <a href="mailto:smirand6@asu.edu">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.thestephaniemiranda.com">
+            <i class="fas fa-globe-americas"></i>
+        </a>
+        <br> Karandeep Singh Grewal &ensp;
+        <a href="mailto:kgrewal2@asu.edu">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <br><br>
+        <b>Backgroung Image</b>
+        <br> Daniel Leone
+        <a href="https://unsplash.com/@danielleone?utm_medium=referral&amp;utm_campaign=photographer-credit">
+            <svg style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>unsplash-logo</title>
             <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
         </svg>
-    </a>
+        </a>
 
 
-</footer>
+    </footer>
 
 </body>
 
