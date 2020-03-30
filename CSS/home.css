@@ -83,11 +83,16 @@ nav a:hover {
     background: var(--transparentBlack);
     font-size: 18px;
     transition: 2s;
-    border-radius: 15px;
+    border-radius: 8px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#taskList li:hover {
+    background: var(--lightergray);
+    transition: 0.2s;
 }
 
 #taskList li.checked {
