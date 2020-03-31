@@ -48,27 +48,29 @@
 
                 <div style="width:100%;display: table; border-spacing: 10px;table-layout: fixed">
                     <div style="display: table-row;width: 30%">
-                        <label style="display: table-cell">Hours</label>
+                        <label for="sessionLength" style="display: table-cell">Session Hours</label>
                         <input type="number" min="0" max="24" step="1" value="2" id="totalHours">
                     </div>
                     <div style="display: table-row;width: 30%">
-                        <label style="display: table-cell">Minutes</label>
+                        <label for="sessionLength" style="display: table-cell">Session Minutes</label>
                         <input type="number" min="0" max="59" step="15" value="0" id="totalMinutes">
                     </div>
                     <div style="display: table-row;width: 30%">
-                        <label for="sessionLength" style="display: table-cell">Session Length</label>
-                        <select id="sessionLength" name="sessionLength" style="display: table-cell">
-                        <option value="25">25</option>
-                        <option value="15">15</option>
-                        <option value="10">10</option>
+                        <label id="work" for="workLength" style="display: table-cell">Work Length</label>
+                        <select id="workLength" name="workLength" style="display: table-cell">
+                            <option value="25">25</option>
+                            <option value="15">15</option>
+                            <option value="10">10</option>
+                            <option value="1">1</option>
                     </select>
                     </div>
                     <div style="display: table-row">
-                        <label for="breakLength" style="display: table-cell">Break Length</label>
+                        <label id="break" for="breakLength" style="display: table-cell">Break Length</label>
                         <select id="breakLength" name="breakLength" style="display: table-cell">
-                        <option value="15">15</option>
-                        <option value="5">5</option>
-                        <option value="3">3</option>
+                            <option value="15">15</option>
+                            <option value="5">5</option>
+                            <option value="3">3</option>
+                            <option value="1">1</option>
                     </select>
                     </div>
                     <div style="display: table-row; width: 100%;">
@@ -88,7 +90,9 @@
 
     <div class="bottsection">
         <!--<div id="player"></div>-->
-        <div id="ticking"></div>
+        <audio id="ticking">
+            <source src="./resources/sounds/Ticking_Clock-KevanGC-1934595011.mp3">
+        </audio>
     </div>
 
     </div>
