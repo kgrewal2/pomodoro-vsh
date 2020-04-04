@@ -1,79 +1,64 @@
 var timeLeft;
-var isTimerRunning = false;
-var sessionLength,breakLength;
-var hoursLabel,minutesLabel,secondsLabel;
-var interval;
-var sessionTimeLeft,breakTimeLeft;
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '400',
-        width: '400',
-        videoId: 'XULUBg_ZcAU',
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
-}
-function onPlayerReady(event) {
-    event.target.playVideo();
-}
+const timerStates = {
+    STOPPED: 'stopped',
+    PLAYING: 'playing',
+    PAUSED: 'paused'
+};
+const labelStates = {
+    ENABLED: "enabled",
+    DISABLED: "disabled"
+};
+let timerState = timerStates.STOPPED;
+let timerLabel;
+let interval;
+let sessionTimeLeft, breakTimeLeft;
+let startButton;
 
-var done = false;
-function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 6000);
-        done = true;
-    }
-}
-function stopVideo() {
-    player.stopVideo();
-}
-
-function startTimer() {
+function startButtonListener(button) {
+    timerLabel = document.getElementById("timerLabel");
     clearInterval(interval);
-    if(isTimerRunning===false){
-        timeLeft = document.getElementById("totalHours").value*3600+ document.getElementById("totalMinutes").value*60;
-        isTimerRunning=true;
+    if (timerState === timerStates.STOPPED) {
+        startButton = button;
+        timeLeft = document.getElementById("totalHours").value * 3600 +
+            document.getElementById("totalMinutes").value * 60;
+        startButton.innerText = "Pause";
+        timerState = timerStates.PLAYING;
+        timerLabel.className = labelStates.ENABLED;
+        interval = setInterval(updateTimeLabel, 1000);
+    } else if (timerState === timerStates.PLAYING) {
+        startButton.innerText = "Resume";
+        timerState = timerStates.PAUSED;
+        clearInterval(interval);
+        timerLabel.className = labelStates.DISABLED;
+    } else if (timerState == timerStates.PAUSED) {
+        startButton.innerText = "Pause";
+        timerState = timerStates.PLAYING;
+        interval = setInterval(updateTimeLabel, 1000);
+        timerLabel.className = labelStates.ENABLED;
     }
-    sessionLength = document.getElementById("sessionLength");
-    sessionLength = sessionLength.options[sessionLength.selectedIndex].value;
-    sessionTimeLeft = sessionLength;
-    breakLength = document.getElementById("breakLength");
-    breakLength = breakLength.options[breakLength.selectedIndex].value;
-    breakTimeLeft = breakLength;
-    interval = setInterval(updateTimeLabel,1000);
 }
 
-function startBreak(){
+function startBreak() {
     breakTimeLeft--;
     player.playVideo();
-    if(breakTimeLeft==0){
+    if (breakTimeLeft == 0) {
         player.stopVideo();
-        sessionTimeLeft=sessionLength;
+        sessionTimeLeft = sessionLength;
+
     }
 }
 
 function updateTimeLabel() {
-    hoursLabel = document.getElementById("hours");
-    minutesLabel = document.getElementById("minutes");
-    secondsLabel = document.getElementById("seconds");
     timeLeft--;
     sessionTimeLeft--;
     let hours = Math.floor(timeLeft / 3600);
+    hours = String("0" + hours).slice(-2);
     let minutes = Math.floor((timeLeft % 3600) / 60);
+    minutes = String("0" + minutes).slice(-2);
     let seconds = Math.floor(timeLeft % 60);
-    hoursLabel.innerHTML = hours;
-    minutesLabel.innerHTML = minutes;
-    secondsLabel.innerHTML = seconds;
-    console.log(sessionTimeLeft+" "+breakTimeLeft);
-    if(sessionTimeLeft==0)
-    {
+    seconds = String("0" + seconds).slice(-2);
+    timerLabel.innerHTML = hours + ":" + minutes + ":" + seconds;
+    if (sessionTimeLeft == 0) {
         startBreak();
     }
 }

@@ -24,15 +24,9 @@
             class="fab fa-spotify"></i> Spotify</a>
 </nav>
 
-<div style="" id="player"></div>
-
 <div class="middleSection">
-    <div id="timer-span">
-        <label id="hours">00</label>
-        <label> : </label>
-        <label id="minutes">00</label>
-        <label> : </label>
-        <label id="seconds">00</label>
+    <div id="timerSpan">
+        <label class="disabled" id="timerLabel">00:00:00</label>
     </div>
 
     <div class="row">
@@ -43,9 +37,7 @@
             <ul id="taskList">
             </ul>
         </div>
-
         <div class="column">
-
             <div style="width:100%;display: table; border-spacing: 10px;table-layout: fixed">
                 <div style="display: table-row;width: 30%">
                     <label style="display: table-cell">Hours</label>
@@ -55,33 +47,16 @@
                     <label style="display: table-cell">Minutes</label>
                     <input type="number" min="0" max="59" step="15" value="0" id="totalMinutes">
                 </div>
-                <div style="display: table-row;width: 30%">
-                    <label for="sessionLength" style="display: table-cell">Session Length</label>
-                    <select id="sessionLength" name="sessionLength" style="display: table-cell">
-                        <option value="25">25</option>
-                        <option value="15">15</option>
-                        <option value="10">10</option>
-                    </select>
-                </div>
-                <div style="display: table-row">
-                    <label for="breakLength" style="display: table-cell">Break Length</label>
-                    <select id="breakLength" name="breakLength" style="display: table-cell">
-                        <option value="15">15</option>
-                        <option value="5">5</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
                 <div style="display: table-row; width: 100%;">
-                    <span class="customButton" style="display: table-cell" id="startTimerButton" onclick="startTimer()">
+                    <span class="customButton" id="startTimerButton" onclick="startButtonListener(this)"
+                          style="display: table-cell">
                         Start
                     </span>
                     <span class="customButton" style="display: table-cell" id="stopTimerButton" onclick="stopButton()">
                         Stop
                     </span>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
@@ -102,17 +77,10 @@
     <a href="mailto:kgrewal2@asu.edu">
         <i class="fas fa-envelope"></i>
     </a>
-    <br><br>
-    <b>Backgroung Image</b>
     <br>
-    Daniel Leone
-    <a href="https://unsplash.com/@danielleone?utm_medium=referral&amp;utm_campaign=photographer-credit">
-        <svg style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
-             viewBox="0 0 32 32"
-             xmlns="http://www.w3.org/2000/svg"><title>unsplash-logo</title>
-            <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-        </svg>
-    </a>
+    Muskan Goyal &ensp;
+    <br>
+    Rahul Gurung
 
 
 </footer>

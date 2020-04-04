@@ -1,14 +1,14 @@
-*{
+* {
     font-family: 'Helvetica Neue', 'Roboto', 'Source Sans Pro', sans-serif;
 }
 
 body {
-    --transparentBlack: rgba(0, 0, 0, 0.32);
-
+    --transparentBlack: rgba(0, 0, 0, 0.31);
+    --transparentWhite: rgba(255, 255, 255, 0.51);
     margin: 25px 50px;
-    /*background: url("../resources/images/mountainsBackground.jpg") no-repeat center center fixed;*/
+    /*background: url("../resources/images/joanna-kosinska-1_CMoFsPfso-unsplash.jpg") no-repeat center center fixed;*/
     /*background-size: cover;*/
-    background: -webkit-gradient(linear, left top, right bottom, from(#56CCF2), to(#2F80ED)) fixed;
+    background: -webkit-linear-gradient(left, #4568DC, #B06AB3) fixed;
     color: white;
 }
 
@@ -40,13 +40,6 @@ nav a {
     text-decoration: none;
 }
 
-
-#time-label {
-    padding: 0px;
-    font-size: 48px;
-    text-align: center;
-}
-
 #taskList {
     margin: 0;
     padding: 0;
@@ -55,10 +48,10 @@ nav a {
 #taskList li {
     cursor: pointer;
     position: relative;
-    margin: 5px 0px;
+    margin: 5px 5px;
     padding: 12px;
     list-style-type: none;
-    background: var(--transparentBlack);
+    background: var(--transparentWhite);
     font-size: 18px;
     transition: 2s;
     border-radius: 15px;
@@ -69,7 +62,8 @@ nav a {
 }
 
 #taskList li.checked {
-    color: rgba(255, 255, 255, 0.34);
+    background: rgba(255, 255, 255, 0.21);
+    color: rgba(255, 255, 255, 0.5);
     text-decoration: line-through;
 }
 
@@ -112,30 +106,33 @@ nav a {
     font-size: 48px;
 }
 
-.customButton{
+.customButton {
     font-weight: bold;
     border-radius: 10px;
     user-select: none;
     padding: 10px;
 }
 
-.customButton:hover{
+.customButton:disabled {
+    background: rgba(16, 209, 0, 0.5);
+}
+
+.customButton:hover {
     cursor: pointer;
     text-decoration: underline;
 }
 
-.customButton:active{
-    filter:brightness(90%);
+.customButton:active {
+    filter: brightness(90%);
 }
 
-#startTimerButton{
-    background: rgba(16, 209, 0, 0.9);
+#startTimerButton {
+    background: rgba(16, 209, 0, 0.71);
 }
 
-#stopTimerButton{
-    background: rgba(255, 94, 115, 0.9);
+#stopTimerButton {
+    background: rgba(255, 94, 115, 0.72);
 }
-
 
 
 /*CSS for the utilities, mid section of the web app.*/
@@ -156,19 +153,35 @@ nav a {
     width: 50%;
 }
 
-#timer-span {
+#timerSpan {
     display: block;
     text-align: center;
 }
 
-#timer-span label {
+#timerSpan label {
     width: 100%;
     font-size: 100px;
     font-weight: bold;
+    transition: 1s;
+}
+
+#timerLabel.enabled {
     color: white;
 }
 
-select{
+#timerLabel.disabled {
+    color: var(--transparentWhite);
+}
+
+input {
+    padding: 1%;
+    width: 100%;
+    max-width: 50%;
+    background-color: var(--transparentBlack);
+    color: white;
+}
+
+select {
     width: 100%;
 }
 
@@ -191,6 +204,4 @@ footer a {
     color: #e3e3e3;
     padding: 0px 5px;
 }
-
-
 
