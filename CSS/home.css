@@ -3,11 +3,25 @@
 }
 
 body {
-    --transparentBlack: rgba(0, 0, 0, 0.31);
+    --transparentBlack: rgba(0, 0, 0, 0.5);
     --transparentWhite: rgba(255, 255, 255, 0.51);
     margin: 25px 50px;
-    background: -webkit-linear-gradient(left, #4568DC, #B06AB3) fixed;
+    background: linear-gradient(-45deg, #3494E6, #EC6EAD);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     color: white;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
 header {
