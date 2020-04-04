@@ -6,8 +6,6 @@ body {
     --transparentBlack: rgba(0, 0, 0, 0.31);
     --transparentWhite: rgba(255, 255, 255, 0.51);
     margin: 25px 50px;
-    /*background: url("../resources/images/joanna-kosinska-1_CMoFsPfso-unsplash.jpg") no-repeat center center fixed;*/
-    /*background-size: cover;*/
     background: -webkit-linear-gradient(left, #4568DC, #B06AB3) fixed;
     color: white;
 }
