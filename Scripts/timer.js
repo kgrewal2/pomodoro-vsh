@@ -38,13 +38,20 @@ function startButtonListener(button) {
     }
 }
 
+function stopButtonListener() {
+    startButton.innerText = "Start";
+    clearInterval(interval);
+    timerLabel.className = labelStates.DISABLED;
+    timerState = timerStates.STOPPED;
+    timerLabel.innerHTML = "00:00:00";
+}
+
 function startBreak() {
     breakTimeLeft--;
     player.playVideo();
     if (breakTimeLeft == 0) {
         player.stopVideo();
         sessionTimeLeft = sessionLength;
-
     }
 }
 
