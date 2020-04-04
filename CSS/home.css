@@ -21,14 +21,12 @@ header {
     font-weight: bold;
     font-size: 42px;
     color: rgb(255, 255, 255);
-    margin: 10px;
 }
 
 nav {
     background-color: var(--transparentBlack);
     color: white;
     font-size: 16px;
-    margin: 10px 0px;
     padding: 10px 20px;
 }
 
@@ -51,7 +49,7 @@ nav a {
     list-style-type: none;
     background: var(--transparentWhite);
     font-size: 18px;
-    transition: 2s;
+    transition: 1s;
     border-radius: 15px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -109,6 +107,7 @@ nav a {
     border-radius: 10px;
     user-select: none;
     padding: 10px;
+    background: var(--transparentWhite);
 }
 
 .customButton:disabled {
@@ -138,7 +137,6 @@ nav a {
 .middleSection {
     background: var(--transparentBlack);
     width: 100%;
-    margin: 10px 0px;
 }
 
 .row {
@@ -172,11 +170,13 @@ nav a {
 }
 
 input {
-    padding: 1%;
+    padding: 10px;
     width: 100%;
     max-width: 50%;
     background-color: var(--transparentBlack);
     color: white;
+    border: solid var(--transparentWhite) 1px;
+    border-radius: 10px;
 }
 
 select {
@@ -187,7 +187,6 @@ select {
     font-size: 12px;
     text-align: justify;
     color: lightgray;
-    margin: 10px 20px;
 }
 
 footer {
@@ -195,7 +194,7 @@ footer {
     color: white;
     font-size: 16px;
     text-align: left;
-    padding: 10px 20px;
+    padding: 10px 20px 20px 20px;
 }
 
 footer a {
