@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        This is from the tutorial on Youtube.com at the following link: https://youtu.be/PwsigsH4oXw
+
+        Icons from Icons8 at: https://icons8.com/icons
+    -->
+
+    <head lang="en">
+        <title>Create Meeting</title>
+        <meta charset="utf-8">
+        <!-- The screen/window area. -->
+        <meta name="viewport" content="width=device-width, initial-1scale=1">
+        <!-- jquery must come before the bootstrap! -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="../Scripts/createMeeting.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Custom Stylesheet(s) below. Note that bootstrap must always come first! -->
+        <link rel="stylesheet" href="../CSS/about.css">
+        <link rel="stylesheet" href="../CSS/home.css">
+        <!--<link rel="text/html" href="../html/php_connect.html">-->
+    </head>
+
+    <body>
+        <header id="headline">
+            <h1>Pomodoro: Create Meeting</h1>
+        </header>
+        <nav>
+            <div class="navigation" id="link"><a href="../index.html">Home</a></div>
+        </nav>
+        <form>
+            <label style="width:200px">Meeting Name</label>
+            <input id="meetingName" placeholder="Luke's Meeting"></input>
+            <br>
+            <label style="width:200px">Date</label>
+            <input id="meetingDate" type="date"></input>
+            <br>
+            <label style="width:200px">From</label>
+            <input id="meetingStart" type="time"></input>
+            <br>
+            <label style="width:200px">To</label>
+            <input id="meetingEnd" type="time"></input>
+            <br>
+            <button type="button" class="btn btn-success" onClick="createMeeting()">Create ID</button>
+        </form>
+
+
+    </body>
+
+</html>
