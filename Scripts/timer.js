@@ -61,8 +61,8 @@ function startTimer() {
     }else{
         //if the timer is running, look at time-label for these values        
         timeLeft = document.getElementById("hours").innerHTML*3600 + document.getElementById("minutes").innerHTML*60;
-
         console.log("HERE IN startTime else, StartTimer timeLeft: " + timeLeft + " isTimerRunning : " + isTimerRunning + " timerSwitch: " + timerSwitch);
+        console.log("workLength: " + workLength + "breakLength: " + breakLength + "breakTimeLeft: " + breakTimeLeft);
     }
         
     interval = setInterval(updateTimeLabel,1000);
@@ -103,7 +103,7 @@ function updateTimeLabel() {
         secondsLabel.innerHTML = seconds;
         
         //This is pulling the options in seconds form the drop downs.
-        console.log("In update TimeLabel, SessionTimeLeft: " + sessionTimeLeft+" breakTimeLeft: "+breakTimeLeft+" timeLeft: " + timeLeft);
+        console.log("In update TimeLabel, SessionTimeLeft: " + sessionTimeLeft+" breakTimeLeft: "+breakTimeLeft+" timeLeft: " + timeLeft + " count: " + count);
         
         pomodoroAlerts(hours, minutes, seconds, count);
     }else{
@@ -160,10 +160,10 @@ function pomodoroAlerts(hours, minutes, seconds, count){
     workLen = document.getElementById("workLength").value;
     breakLen = document.getElementById("breakLength").value;
 
-    //let workActivity = minutesLabel.value + workLen;
-    //let breakAcivity = minutesLabel.value + breakLen;
+    let workActivity = minutesLabel.value + workLen;
+    let breakAcivity = minutesLabel.value + breakLen;
 
-    //console.log("PomodoroAlerts timerSwitch: " + timerSwitch+ " this.seconds: " + this.seconds + " this.minutes: " + this.minutes + " this.hours: " + this.hours + " breakLen: " + breakLen + " workLen: " + workLen + "\nthis.count: " + this.count + " workActivity: " + workActivity + " breakAcivity: " + breakAcivity);
+    console.log("PomodoroAlerts timerSwitch: " + timerSwitch+ " this.seconds: " + this.seconds + " this.minutes: " + this.minutes + " this.hours: " + this.hours + " breakLen: " + breakLen + " workLen: " + workLen + "\nthis.count: " + this.count + " workActivity: " + workActivity + " breakAcivity: " + breakAcivity);
 
     if(timerSwitch === false){
         if(sessionTimeLeft < 10){

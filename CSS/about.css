@@ -28,4 +28,11 @@ nav a {
     text-decoration: none;
 }
 
+#mainSection {
+    background-color: var(--transparentBlack);
+    padding: 10px 10px;
+}
 
+#mainSection a {
+    color: goldenrod;
+}

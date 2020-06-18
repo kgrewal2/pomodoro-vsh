@@ -180,6 +180,12 @@ nav a:hover {
     margin: 10px 0px;
 }
 
+.bottomSection {
+    background: var(--transparentBlack);
+    width: 100%;
+    margin: 10px 0px;
+}
+
 .row {
     display: flex;
 }

@@ -21,9 +21,9 @@
         <a href="./html/about.html" id="about">About</a>
         <!--<a target="_blank" href="https://www.youtube.com/playlist?list=PLF3TLWNmsDCewZ0h4ipsgBwI_znWbGE3p" style="float:right"><i class="fab fa-youtube"></i> YouTube
         </a>-->
-        <a target="_blank" href="https://beta.music.apple.com" style="float: right"><i class="fab fa-apple"></i> Apple Music</a>
+        <!--<a target="_blank" href="https://beta.music.apple.com" style="float: right"><i class="fab fa-apple"></i> Apple Music</a>
         <a target="_blank" href="https://open.spotify.com/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=5KzGDm-fRdybH8sM-cSISg" style="float: right"><i
-            class="fab fa-spotify"></i> Spotify</a>
+            class="fab fa-spotify"></i> Spotify</a>-->
     </nav>
 
     <div class="middleSection">
@@ -89,8 +89,19 @@
     </div>
 
     <div class="bottsection">
-        <iframe src="https://open.spotify.com/embed/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=x2VH6WR3SBGAG0iC0T5urg" width="300" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        <div id="player"></div>
+        <div class="row">
+            <div class="column" id="spotify">
+                <iframe src="https://open.spotify.com/embed/playlist/0lHeOLHPtj3dZnI7hjbEiy?si=x2VH6WR3SBGAG0iC0T5urg" width="300" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+            <div class="column" id="appleMusic">
+                <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+                    src="https://embed.music.apple.com/us/playlist/vibes/pl.d6f5a44a25664f508078216de584ba0d"></iframe>
+            </div>
+            <div class="column" id="youTube">
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLF3TLWNmsDCewZ0h4ipsgBwI_znWbGE3p" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <!--<div id="player"></div>-->
         <audio id="ticking">
             <source src="./resources/sounds/Ticking_Clock-KevanGC-1934595011.mp3">
         </audio>
