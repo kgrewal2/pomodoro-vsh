@@ -7,9 +7,24 @@ var interval;
 var sessionTimeLeft,breakTimeLeft;
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+/*var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);*/
 var count = 0;
+var timerLabel;
+
+
+/*Controls the state of the timer based on button listeners.*/
+const timerStates = {
+    STOPPED: 'stopped',
+    PLAYING: 'playing',
+    PAUSED: 'paused'
+}
+
+/*Controls the state of the label/timer in the UI.*/
+const labelStates = {
+    ENABLED: 'enabled',
+    DISABLED: 'disabled'
+}
 
 /*YouTube embedded player*/
 var player;
@@ -101,9 +116,11 @@ function updateTimeLabel() {
         hoursLabel.innerHTML = hours;
         minutesLabel.innerHTML = minutes;
         secondsLabel.innerHTML = seconds;
+
+        timerLabel = hoursLabel + minutesLabel + secondsLabel;
         
         //This is pulling the options in seconds form the drop downs.
-        console.log("In update TimeLabel, SessionTimeLeft: " + sessionTimeLeft+" breakTimeLeft: "+breakTimeLeft+" timeLeft: " + timeLeft + " count: " + count);
+        console.log("In update TimeLabel, SessionTimeLeft: " + sessionTimeLeft+" breakTimeLeft: "+breakTimeLeft+" timeLeft: " + timeLeft + " count: " + count + "\ntimerLable: " + timerLabel);
         
         pomodoroAlerts(hours, minutes, seconds, count);
     }else{
@@ -196,4 +213,24 @@ function pomodoroAlerts(hours, minutes, seconds, count){
             getSwitch();
         }
     }
+}
+
+/*A function that stops the timer, or pauses it without resetting the timers.*/
+function stopButton(){
+    hoursLabel = document.getElementById("hours");
+    minutesLabel = document.getElementById("minutes");
+    secondsLabel = document.getElementById("seconds");
+    timerLabel = hoursLabel + minutesLabel + secondsLabel;
+    console.log(timerLabel);
+    clearInterval(interval);
+    timerLabel.className = labelStates.DISABLED;
+    timerState = timerStates.PAUSED;
+    stopButton.innerText = "RESUME";
+
+}
+
+/*Export modules for npm to test with Jest, and API building.*/
+module.exports = {
+    stopButton,
+    startTimer
 }

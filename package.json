@@ -1,0 +1,30 @@
+{
+    "name": "pomodoro-vsh",
+    "version": "0.0.3",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "tests",
+        "scripts": "Scripts",
+        "html": "html",
+        "css": "CSS",
+        "resources": "resources"
+    },
+    "scripts": {
+        "test_echo": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kgrewal2/pomodoro-vsh.git"
+    },
+    "author": "Stephanie Miranda, Karandeep Singh Grewal",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kgrewal2/pomodoro-vsh/issues"
+    },
+    "homepage": "https://github.com/kgrewal2/pomodoro-vsh#readme",
+    "devDependencies": {
+        "jest": "^26.0.1"
+    }
+}
